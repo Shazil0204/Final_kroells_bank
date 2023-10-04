@@ -1,0 +1,107 @@
+﻿@page "/Admin"
+@inject NavigationManager NavigationManager
+@namespace KroellsManagement.Classes
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin Page</title>
+	<link rel="stylesheet" href="~/css/site.css">
+</head>
+<body>
+	<div class="divert">
+		<button @onclick="GetAddresses" class="button">Adresses</button>
+		<button @onclick="GetCards" class="button">Cards</button>
+		<button @onclick="GetClients" class="button">Clients</button>
+		<button @onclick="GetCprs" class="button">CPRs</button>
+		<button @onclick="GetEmployees" class="button">Employees</button>
+		<button @onclick="GetJobs" class="button">Jobs</button>
+		<button @onclick="GetLoans" class="button">Loans</button>
+		<button @onclick="GetTransactions" class="button">Transactions</button>
+	</div>
+	<div class="editbar">
+		<button class="button">Create</button>
+		<button class="button">Edit Lock</button>
+		<input class="button" type="text" name="q" placeholder="Search..." />
+		<button class="button">Delete</button>
+	</div>
+
+	<div class="table">
+		<table class="addresses">
+				<tr>
+					<th>Account ID</th>
+					<th>Balance</th>
+					<th>Card ID</th>
+				</tr>
+		</table>
+	</div>
+</body>
+</html>
+
+
+@code {
+	/// <summary>
+	/// This scope has bunch of methods which provide names for a button object.
+	/// Each method gets called by only one button on the website user interface. 
+	/// Once the button has a name, it calls the ButtonHandler() method, in the ButtonController class, with the button as the parameter
+	/// </summary>
+	Controllers.ButtonController controller = new Controllers.ButtonController();
+
+	private void GetAddresses()
+	{
+		Model.Button button = new Model.Button();
+		button.ButtonName = "Addresses";
+		controller.ButtonHandler(button);
+	}
+
+	private void GetCards()
+	{
+		Model.Button button = new Model.Button();
+		button.ButtonName = "Cards";
+		controller.ButtonHandler(button);
+	}
+
+	private void GetClients()
+	{
+		Model.Button button = new Model.Button();
+		button.ButtonName = "Clients";
+		controller.ButtonHandler(button);
+	}
+
+	private void GetCprs()
+	{
+		Model.Button button = new Model.Button();
+		button.ButtonName = "CPRs";
+		controller.ButtonHandler(button);
+	}
+
+	private void GetEmployees()
+	{
+		Model.Button button = new Model.Button();
+		button.ButtonName = "Employees";
+		controller.ButtonHandler(button);
+	}
+
+	private void GetJobs()
+	{
+		Model.Button button = new Model.Button();
+		button.ButtonName = "Jobs";
+		controller.ButtonHandler(button);
+	}
+
+	private void GetLoans()
+	{
+		Model.Button button = new Model.Button();
+		button.ButtonName = "Loans";
+		controller.ButtonHandler(button);
+	}
+
+	private void GetTransactions()
+	{
+		Model.Button button = new Model.Button();
+		button.ButtonName = "Transactions";
+		controller.ButtonHandler(button);
+	}
+}

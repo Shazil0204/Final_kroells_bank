@@ -1,4 +1,7 @@
-﻿function getButtonIdAndCallCSharpMethod(button) {
-    var buttonId = button.id; 
-    DotNet.invokeMethod("KroellsManagement.Pages", "GetTable", buttonId);
-}
+﻿window.MyInterop = {
+    getAddresses: function () {
+        console.log("Entered function");
+        DotNet.invokeMethod('KroellsManagement.Pages.AdminModel', 'GetAddresses');
+    },
+    // Define similar functions for other actions
+};  
