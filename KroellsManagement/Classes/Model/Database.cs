@@ -8,7 +8,6 @@ namespace KroellsManagement.Classes.Model
 	/// </summary>
 	internal class Database
 	{
-		//
 		internal void GetTable(string connStr, string storedProcedure)
 		{
 			using (SqlConnection connection = new SqlConnection(connStr))
@@ -23,11 +22,35 @@ namespace KroellsManagement.Classes.Model
 					{
 						while(read.Read())
 						{
-							// 
+
 						}
 					}
 				}
 			}
+		}
+
+		/// <summary>
+		/// This deletes the currently selected row.
+		/// </summary>
+		internal void DeleteRow()
+		{
+
+		}
+
+		/// <summary>
+		/// This creates a new row in the table.
+		/// </summary>
+		internal void CreateRow()
+		{
+
+		}
+
+		/// <summary>
+		/// This method applies the changes made to the data, to the database.
+		/// </summary>
+		internal void ApplyChanges()
+		{
+
 		}
 	}
 }

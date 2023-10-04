@@ -1,8 +1,8 @@
-﻿using KroellsManagement.Classes.Model;
+﻿using KroellsManagement.Classes.Model.Properties;
 
 namespace KroellsManagement.Classes.Controllers
 {
-	internal class ButtonController
+    internal class ButtonController
 	{
 		internal void ButtonHandler(Button button)
 		{

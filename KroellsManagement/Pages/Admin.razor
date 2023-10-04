@@ -7,10 +7,14 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Admin Page</title>
+	<title>Admin Page</title
 	<link rel="stylesheet" href="~/css/site.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+	<link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+	
 </head>
 <body>
+
 	<div class="divert">
 		<button @onclick="GetAddresses" class="button">Adresses</button>
 		<button @onclick="GetCards" class="button">Cards</button>
@@ -24,19 +28,128 @@
 	<div class="editbar">
 		<button class="button">Create</button>
 		<button class="button">Edit Lock</button>
-		<input class="button" type="text" name="q" placeholder="Search..." />
+		<input class="buttonSearch" type="text" style="width:50px;" name="q" placeholder="Search..." />
 		<button class="button">Delete</button>
 	</div>
+	<table id="example" class="table table-striped" style="width:100%">
+		<thead>
+			<tr>
+				<th>AccountID</th>
+				<th>Balance</th>
+				<th>CardID</th>
+			</tr>
+		</thead>
+		 <tbody>
+			<tr>
+				<td>1</td>
+				<td>$1,000.00</td>
+				<td>123456789</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>$500.00</td>
+				<td>987654321</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>$2,500.00</td>
+				<td>555555555</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>$800.00</td>
+				<td>111111111</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>$3,200.00</td>
+				<td>999999999</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>$1,200.00</td>
+				<td>888888888</td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>$600.00</td>
+				<td>777777777</td>
+			</tr>
+			<tr>
+				<td>8</td>
+				<td>$4,000.00</td>
+				<td>666666666</td>
+			</tr>
+			<tr>
+				<td>9</td>
+				<td>$2,300.00</td>
+				<td>444444444</td>
+			</tr>
+			<tr>
+				<td>10</td>
+				<td>$700.00</td>
+				<td>333333333</td>
+			</tr>
+			<tr>
+				<td>11</td>
+				<td>$1,800.00</td>
+				<td>222222222</td>
+			</tr>
+			<tr>
+				<td>12</td>
+				<td>$1,100.00</td>
+				<td>555555555</td>
+			</tr>
+			<tr>
+				<td>13</td>
+				<td>$2,900.00</td>
+				<td>777777777</td>
+			</tr>
+			<tr>
+				<td>14</td>
+				<td>$5,600.00</td>
+				<td>999999999</td>
+			</tr>
+			<tr>
+				<td>15</td>
+				<td>$3,700.00</td>
+				<td>888888888</td>
+			</tr>
+			<tr>
+				<td>16</td>
+				<td>$1,400.00</td>
+				<td>666666666</td>
+			</tr>
+			<tr>
+				<td>17</td>
+				<td>$900.00</td>
+				<td>444444444</td>
+			</tr>
+			<tr>
+				<td>18</td>
+				<td>$2,200.00</td>
+				<td>333333333</td>
+			</tr>
+			<tr>
+				<td>19</td>
+				<td>$1,600.00</td>
+				<td>222222222</td>
+			</tr>
+			<tr>
+				<td>20</td>
+				<td>$3,300.00</td>
+				<td>555555555</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th>AccountID</th>
+				<th>Balance</th>
+				<th>CardID</th>
 
-	<div class="table">
-		<table class="addresses">
-				<tr>
-					<th>Account ID</th>
-					<th>Balance</th>
-					<th>Card ID</th>
-				</tr>
-		</table>
-	</div>
+			</tr>
+		</tfoot>
+</table>
 </body>
 </html>
 
@@ -44,63 +157,63 @@
 @code {
 	/// <summary>
 	/// This scope has bunch of methods which provide names for a button object.
-	/// Each method gets called by only one button on the website user interface. 
+	/// Each method gets called by only one button on the website user interface.
 	/// Once the button has a name, it calls the ButtonHandler() method, in the ButtonController class, with the button as the parameter
 	/// </summary>
 	Controllers.ButtonController controller = new Controllers.ButtonController();
 
 	private void GetAddresses()
 	{
-		Model.Button button = new Model.Button();
+		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Addresses";
 		controller.ButtonHandler(button);
 	}
 
 	private void GetCards()
 	{
-		Model.Button button = new Model.Button();
+		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Cards";
 		controller.ButtonHandler(button);
 	}
 
 	private void GetClients()
 	{
-		Model.Button button = new Model.Button();
+		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Clients";
 		controller.ButtonHandler(button);
 	}
 
 	private void GetCprs()
 	{
-		Model.Button button = new Model.Button();
+		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "CPRs";
 		controller.ButtonHandler(button);
 	}
 
 	private void GetEmployees()
 	{
-		Model.Button button = new Model.Button();
+		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Employees";
 		controller.ButtonHandler(button);
 	}
 
 	private void GetJobs()
 	{
-		Model.Button button = new Model.Button();
+		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Jobs";
 		controller.ButtonHandler(button);
 	}
 
 	private void GetLoans()
 	{
-		Model.Button button = new Model.Button();
+		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Loans";
 		controller.ButtonHandler(button);
 	}
 
 	private void GetTransactions()
 	{
-		Model.Button button = new Model.Button();
+		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Transactions";
 		controller.ButtonHandler(button);
 	}

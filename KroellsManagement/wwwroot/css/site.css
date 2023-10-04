@@ -94,6 +94,12 @@ a, .btn-link {
         color: #ffffff;
         border: solid 2px #264653;
     }
+
+.buttonSearch::placeholder {
+    color: white;
+    text-align: left;
+}
+
 .editbar {
     display: flex;
     flex-wrap: wrap;
@@ -103,12 +109,11 @@ a, .btn-link {
     border: solid 2px #264653;
     border-radius: 7px;
 }
+
 .buttonSearch {
     font-family: Raleway;
     font-weight: 100;
     font-size: 15px;
-    color: white;
-    
     background-color: #707d82;
     padding: 10px 200px;
     border: solid #264653 2px;
@@ -116,54 +121,34 @@ a, .btn-link {
     border-radius: 7px;
     transition: 1000ms;
     margin: 5px;
-}
-.buttonSearch:hover {
-    transition: 250ms;
-    padding: 10px 226px;
-    background-color: #000000;
-    color: #ffffff;
-    border: solid 2px #264653;
+    color: white;
+
 }
 
-.table {
-    margin-left: 20%;
-    margin-right: 20%;
-    width: 60%;
-    height: 60%;
-    font-family: Raleway;
-    font-weight: 100;
-    font-size: 15px;
-    color: #fff;
-    background-color: #707d82;
-    padding: 10px 15px;
-    border: solid #264653 2px;
-    border-radius: 7px;
-    text-align: center;
-    align-content:center;
-}
-
-    /* Center the table header text */
-    .table th {
-        text-align: center;
+    .buttonSearch:hover {
+        transition: 250ms;
+        padding: 10px 226px;
+        background-color: #000000;
+        border: solid 2px #264653;
     }
 
-        /* Customize column widths */
-        .table th:nth-child(1) {
-            width: 45%;
-        }
+.table {
+    width: 100%; /* Make the table fill its container */
+    border-collapse: collapse; /* Remove spacing between table cells */
+}
+    /* Style table headers (th) */
+    .table th {
+        background-color: #333; /* Header background color */
+        color: #fff; /* Header text color */
+        padding: 10px; /* Header cell padding */
+    }
 
-        .table th:nth-child(2) {
-            width: 50%;
-        }
+    /* Style table rows (alternating background colors) */
+    .table tbody tr:nth-child(even) {
+        background-color: #f2f2f2; /* Even rows background color */
+    }
 
-        .table th:nth-child(3) {
-            width: 20%;
-        }
-
-
-
-
-
-
-
-
+    /* Style table cells (td) */
+    .table td {
+        padding: 8px; /* Cell padding */
+    }
