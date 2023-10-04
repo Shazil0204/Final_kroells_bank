@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\zbcyomi\\Documents\\GitHub\\CSharp-School\\KroellsManagement\\KroellsManagement.csproj": {}
+    "C:\\Users\\zbcyomi\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\KroellsManagement.csproj": {}
   },
   "projects": {
-    "C:\\Users\\zbcyomi\\Documents\\GitHub\\CSharp-School\\KroellsManagement\\KroellsManagement.csproj": {
+    "C:\\Users\\zbcyomi\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\KroellsManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zbcyomi\\Documents\\GitHub\\CSharp-School\\KroellsManagement\\KroellsManagement.csproj",
+        "projectUniqueName": "C:\\Users\\zbcyomi\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\KroellsManagement.csproj",
         "projectName": "KroellsManagement",
-        "projectPath": "C:\\Users\\zbcyomi\\Documents\\GitHub\\CSharp-School\\KroellsManagement\\KroellsManagement.csproj",
+        "projectPath": "C:\\Users\\zbcyomi\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\KroellsManagement.csproj",
         "packagesPath": "C:\\Users\\zbcyomi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zbcyomi\\Documents\\GitHub\\CSharp-School\\KroellsManagement\\obj\\",
+        "outputPath": "C:\\Users\\zbcyomi\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\zbcyomi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,18 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.11, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
