@@ -1,4 +1,3 @@
-using KroellsManagement.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.Data.SqlClient;
@@ -17,15 +16,6 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
 }
-
-var config = new ConfigurationBuilder()
-        .AddJsonFile("appsettings.json")
-        .Build();
-
-// var conn = config.GetConnectionString("DefaultConnection");
-//qlConnection sqlcon = new SqlConnection (conn);
-
-//sqlcon.Open(); 
 
 app.UseStaticFiles();
 
