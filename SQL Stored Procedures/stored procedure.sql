@@ -1,4 +1,4 @@
-	CREATE PROCEDURE CheckEmployeeLogin
+CREATE PROCEDURE CheckEmployeeLogin
     @Username VARCHAR(50),
     @Password VARCHAR(255),
     @Result INT OUTPUT
