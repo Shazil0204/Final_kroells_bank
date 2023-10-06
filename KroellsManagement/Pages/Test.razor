@@ -1,11 +1,37 @@
 ﻿@page "/test"
 
-@attribute [Authorize]
+@* @code
+{
+	Data.Database database = new Data.Database();
 
-<div id="LogoAndText>" style="margin-bottom: 10px;">
-    <img style="height: 450px;" src="/img/FrktLogo.png" />
-</div>
-
-@code {
+	sbyte isAuthenticated = await database.DBConnection();
 
 }
+
+@if (isAuthenticated == -2)
+{
+	<h1> An unknown error occurred </h1>
+}
+else if (isAuthenticated == -1)
+{
+	<h1> Invalid credentials </h1>
+}
+
+else if (isAuthenticated == 0)
+{
+	<h1> Not an admin or IT user</h1>
+}
+
+else if (isAuthenticated == 1)
+{
+	<h1> You can access this page</h1>
+}
+else
+{
+	
+<h1>HTTP: 410</h1>	
+} *@
+
+<div id="LogoAndText" style="margin-bottom: 10px;">
+            <img style="height: 450px;" src="/img/FrktLogo.png" />
+        </div>

@@ -22,7 +22,7 @@ namespace KroellsManagement.Data
             set { _password = value; }
         }
 
-        internal async Task<bool> DBConnection()
+        internal async Task<sbyte> DBConnection()
         {
             var config = new ConfigurationBuilder()
                .AddJsonFile("appsettings.json")
@@ -53,13 +53,13 @@ namespace KroellsManagement.Data
                 switch (resultCode)
                 {
                     case 1:
-                        return true;
+                        return 1;
                     case 0:
-                        return false;
+                        return 0;
                     case -1:
-                        return false;
+                        return -1;
                     default:
-                        return false;
+                        return -2;
                 }
             }
         }

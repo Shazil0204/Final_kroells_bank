@@ -2,10 +2,12 @@
 
 <PageTitle>Management Login</PageTitle>
 
+@* @attribute [Authorize] *@
+
 <div class="d-flex align-items-center justify-content-center vh-100">
     <div class="container" style="width:700px; height:600px; text-align:center; box-shadow: 5px 5px 10px rgba(0,0,0,0.3); border-radius: 10px;">
                 
-         <div id="LogoAndText>" style="margin-bottom: 10px;">
+        <div id="LogoAndText" style="margin-bottom: 10px;">
             <img style="height: 450px;" src="/img/FrktLogo.png" />
         </div>
 
@@ -29,16 +31,15 @@
     
     private async Task SignIn()
     {
-        bool isAuthenticated = await database.DBConnection();
-
-        if (isAuthenticated)
+        sbyte isAuthenticated = await database.DBConnection();
+        
+        if (isAuthenticated == 1)
         {
-            // Redirect to the main dashboard page if login is successful
-            NavigationManager.NavigateTo("/test");
+            NavigationManager.NavigateTo("/test", true);
         }
         else
         {
-            
+          
         }
     }
 }
