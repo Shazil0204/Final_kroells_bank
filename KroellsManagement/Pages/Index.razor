@@ -16,7 +16,7 @@
             </EditForm>
     
             <div id="Button" style="margin-top: 20px;">
-                <button type="submit" @onclick="database.DBConnection" class="btn btn-primary"> Sign in </button>
+                <button type="submit" @onclick="SignIn" class="btn btn-primary"> Sign in </button>
             </div>
         </div>
     </div>
@@ -25,4 +25,20 @@
 @code
 {
     Data.Database database = new Data.Database();
+    @inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
+    
+    private async Task SignIn()
+    {
+        bool isAuthenticated = await database.DBConnection();
+
+        if (isAuthenticated)
+        {
+            // Redirect to the main dashboard page if login is successful
+            NavigationManager.NavigateTo("/test");
+        }
+        else
+        {
+            
+        }
+    }
 }

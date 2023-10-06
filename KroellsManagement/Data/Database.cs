@@ -22,7 +22,7 @@ namespace KroellsManagement.Data
             set { _password = value; }
         }
 
-        internal void DBConnection()
+        internal async Task<bool> DBConnection()
         {
             var config = new ConfigurationBuilder()
                .AddJsonFile("appsettings.json")
@@ -53,17 +53,13 @@ namespace KroellsManagement.Data
                 switch (resultCode)
                 {
                     case 1:
-                        Debug.WriteLine("Login successful. You can proceed.");
-                        break;
+                        return true;
                     case 0:
-                        Debug.WriteLine("Access denied. You do not have permission to log in with this position.");
-                        break;
+                        return false;
                     case -1:
-                        Debug.WriteLine("Access denied. Invalid Username or Password.");
-                        break;
+                        return false;
                     default:
-                        Debug.WriteLine("An unknown error occurred.");
-                        break;
+                        return false;
                 }
             }
         }
