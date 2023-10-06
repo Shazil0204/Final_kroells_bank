@@ -5,7 +5,7 @@
 @* @attribute [Authorize] *@
 
 <div class="d-flex align-items-center justify-content-center vh-100">
-    <div class="container" style="width:700px; height:600px; text-align:center; box-shadow: 5px 5px 10px rgba(0,0,0,0.3); border-radius: 10px;">
+    <div class="container" style="width:700px; height:650px; text-align:center; box-shadow: 5px 5px 10px rgba(0,0,0,0.3); border-radius: 10px;">
                 
         <div id="LogoAndText" style="margin-bottom: 10px;">
             <img style="height: 450px;" src="/img/FrktLogo.png" />
@@ -20,14 +20,25 @@
             <div id="Button" style="margin-top: 20px;">
                 <button type="submit" @onclick="SignIn" class="btn btn-primary"> Sign in </button>
             </div>
+
+            <div id="EmployeeError" style="border: 1px solid black; margin:auto; visibility: @(showError /*this need to be a sbyte*/ ? "visible" : "hidden")">
+            
+                <p style="color:red;">Something Wrong With The Input</p>
+
+            </div>
+
         </div>
     </div>
 </div> 
 
-@code
+
+    @code
 {
     Data.Database database = new Data.Database();
     @inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
+    
+    // 1. Add a boolean field to track the visibility of EmployeeError
+    private bool showError = false;
     
     private async Task SignIn()
     {
@@ -37,9 +48,15 @@
         {
             NavigationManager.NavigateTo("/test", true);
         }
-        else
+        else if (isAuthenticated == -1)
         {
-          
-        }
+            LoginError();
+        }  // i have to make more if statements for each error
+    }
+
+    private void LoginError()  // i have to make more methods for each if statement
+    {
+        // 3. Set showError to true to make the EmployeeError div visible
+        showError = true;
     }
 }
