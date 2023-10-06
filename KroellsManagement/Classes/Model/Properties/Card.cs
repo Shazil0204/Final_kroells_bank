@@ -3,7 +3,7 @@
 	/// <summary>
 	/// This class represents one row in the cards table, as an object.
 	/// </summary>
-	public class Card
+	public class Card : TableBlueprint
 	{
 		private int _cardId;
 		private int _cardNumber;

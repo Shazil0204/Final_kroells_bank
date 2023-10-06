@@ -3,7 +3,7 @@
 	/// <summary>
 	/// This class represents an object as a loan table row.
 	/// </summary>
-	public class Loans
+	public class Loan : TableBlueprint
 	{
 		private int _clientAccountId;
 		private int _clientId;

@@ -3,7 +3,7 @@
 	/// <summary>
 	/// This class represents an object of a clients table row.
 	/// </summary>
-	public class Client
+	public class Client : TableBlueprint
 	{
 		private int _clientId;
 		private string _clientName;

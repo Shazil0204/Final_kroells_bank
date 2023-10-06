@@ -3,7 +3,7 @@
 	/// <summary>
 	/// This class represents an object from the CPRs table row.
 	/// </summary>
-	public class Cpr
+	public class Cpr : TableBlueprint
 	{
 		private int _cprId;
 		private int _clientId;

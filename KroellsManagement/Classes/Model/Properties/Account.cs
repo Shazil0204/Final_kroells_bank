@@ -3,7 +3,7 @@
 	/// <summary>
 	/// This class represents one row in the accounts table, inside the database, as an object
 	/// </summary>
-	public class Accounts
+	public class Account : TableBlueprint
 	{
 		private int _accountId;
 		private int _balance;

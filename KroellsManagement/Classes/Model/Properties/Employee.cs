@@ -3,7 +3,7 @@
 	/// <summary>
 	/// This class represents an object as a row in the Employee table in the database
 	/// </summary>
-	public class Employee
+	public class Employee : TableBlueprint
 	{
 		private int _employeeId;
 		private string _position;

@@ -1,10 +1,13 @@
 ﻿using KroellsManagement.Classes.Model.Properties;
+using Microsoft.JSInterop;
 
 namespace KroellsManagement.Classes.Controllers
 {
     internal class ButtonController
 	{
-		internal void ButtonHandler(Button button)
+		private IJSRuntime _runtime;
+
+		internal void TableHandler(Button button, bool edit)
 		{
 			// Gets the connection string from appsettings
 			string connection = Environment.GetEnvironmentVariable("DatabaseConnection");
@@ -15,6 +18,7 @@ namespace KroellsManagement.Classes.Controllers
 			switch (button.ButtonName)
 			{
 				case "Addresses":
+					// JAVASCRIPT TO CREATE HEADER AND FOOTER, IN THE CORRECT LOCATION
 					storedProcedure = "";
 					break;
 				case "Cards":
@@ -36,11 +40,25 @@ namespace KroellsManagement.Classes.Controllers
 					storedProcedure = "";
 					break;
 				case "Transactions":
+
 					storedProcedure = "";
 					break;
 			}
 
-			// JAVA SCRIPT TO REMOVE PREVIOUS TABLE
+			// RETURN TABLE FROM THE Database CLASS.
+
+			// JAVA SCRIPT TO OUTPUT DATA AS TABLE IN HTML
+		}
+
+		internal bool EditLock(bool currentState)
+		{
+			currentState = !currentState;
+			return currentState;
+		}
+
+		internal void Delete()
+		{
+
 		}
 	}
 }

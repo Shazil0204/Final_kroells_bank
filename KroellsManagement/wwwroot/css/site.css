@@ -64,6 +64,7 @@ a, .btn-link {
     }
 
 .divert {
+    margin: 2px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -77,28 +78,23 @@ a, .btn-link {
     font-family: Raleway;
     font-weight: 100;
     font-size: 15px;
-    color: #fff;
-    background-color: #707d82;
+    color: black;
+    background-image: linear-gradient(greenyellow,yellow);
     padding: 10px 15px;
     border: solid #264653 2px;
     box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
     border-radius: 7px;
     transition: 1000ms;
     margin: 5px;
+    border-color: darkorange;
 }
 
     .button:hover {
         transition: 250ms;
         padding: 10px 26px;
-        background-color: #000000;
-        color: #ffffff;
+        color: black;
         border: solid 2px #264653;
     }
-
-.buttonSearch::placeholder {
-    color: white;
-    text-align: left;
-}
 
 .editbar {
     display: flex;
@@ -109,28 +105,6 @@ a, .btn-link {
     border: solid 2px #264653;
     border-radius: 7px;
 }
-
-.buttonSearch {
-    font-family: Raleway;
-    font-weight: 100;
-    font-size: 15px;
-    background-color: #707d82;
-    padding: 10px 200px;
-    border: solid #264653 2px;
-    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
-    border-radius: 7px;
-    transition: 1000ms;
-    margin: 5px;
-    color: white;
-
-}
-
-    .buttonSearch:hover {
-        transition: 250ms;
-        padding: 10px 226px;
-        background-color: #000000;
-        border: solid 2px #264653;
-    }
 
 .table {
     width: 100%; /* Make the table fill its container */
@@ -152,3 +126,7 @@ a, .btn-link {
     .table td {
         padding: 8px; /* Cell padding */
     }
+
+.tableContent, #table {
+    text-align: center;
+}

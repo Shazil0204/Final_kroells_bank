@@ -3,7 +3,7 @@
 	/// <summary>
 	/// This class represents an object of a row from the job table, located in the database
 	/// </summary>
-	public class Job
+	public class Job : TableBlueprint
 	{
 		private int _jobId;
 		private int _income;

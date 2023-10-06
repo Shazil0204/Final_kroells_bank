@@ -3,7 +3,7 @@
 	/// <summary>
 	/// This class represents an object as a row in the Addresses table, from the database
 	/// </summary>
-	public class Address
+	public class Address : TableBlueprint
 	{
 		private int _addressId;
 		private int _zipCode;

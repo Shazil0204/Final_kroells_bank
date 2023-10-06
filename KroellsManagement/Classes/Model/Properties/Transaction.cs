@@ -3,7 +3,7 @@
 	/// <summary>
 	/// This class represents one row inside the Transactions table, as an object
 	/// </summary>
-	public class Transaction
+	public class Transaction : TableBlueprint
 	{
 		private int _transactionId;
 		private int _amount;
