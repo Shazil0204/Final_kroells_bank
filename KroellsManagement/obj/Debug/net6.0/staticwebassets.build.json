@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uJngRwWIDHNIJbvF2wemhLh5y9jmhcwxRUdLaD5BSMQ=",
+  "Hash": "Odto3Phu1tlu4UeoPPyIsy3g1GUimY2bbsAIjtCxQOU=",
   "Source": "KroellsManagement",
   "BasePath": "_content/KroellsManagement",
   "Mode": "Default",
@@ -287,6 +287,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\FrktLogo.png"
+    },
+    {
+      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\JS\\Delete.js",
+      "SourceId": "KroellsManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "BasePath": "_content/KroellsManagement",
+      "RelativePath": "JS/Delete.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\JS\\Delete.js"
     },
     {
       "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\JS\\Table.js",

@@ -19,7 +19,7 @@ namespace KroellsManagement.Classes.Controllers
 			{
 				case "Addresses":
 					// JAVASCRIPT TO CREATE HEADER AND FOOTER, IN THE CORRECT LOCATION
-					storedProcedure = "";
+					storedProcedure = ""; 
 					break;
 				case "Cards":
 					storedProcedure = "";
@@ -56,8 +56,9 @@ namespace KroellsManagement.Classes.Controllers
 			return currentState;
 		}
 
-		internal void Delete()
+		internal void Delete(string id)
 		{
+			string storedProcedure = "";
 
 		}
 	}

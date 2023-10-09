@@ -17,18 +17,16 @@
 <body>
 
 	<div class="divert">
-		<button onclick="updateTable(['Account ID', 'Balance', 'Card ID', '', '', '', '']); GetAccounts();" class="button">Accounts</button>
-		<button onclick="updateTable(['Postal code', 'City', 'Street', 'House Number', '', '', '']); GetAddresses();" class="button">Addresses</button>
-		<button onclick="updateTable(['Card Number', 'Expire Date', 'CVV', 'Client Name', 'Pin', 'Spendig', '']); GetCards();" class="button">Cards</button>
-		<button onclick="updateTable(['Client Name', 'Username', 'Password Hashed', '', '', '', '']); GetClients();" class="button">Clients</button>
-		<button onclick="updateTable(['Client ID', 'AdressID', 'EmployeeID', 'CPR Number', '', '', '']); GetCprs();" class="button">CPRs</button>
-		<button onclick="updateTable(['Position', 'Username', 'Password Hashed', '', '', '', '']); GetEmployees();" class="button">Employees</button>
-		<button onclick="updateTable(['Income', 'Job Name', '', '', '', '', '']); GetJobs();" class="button">Jobs</button>
-		<button onclick="updateTable(['Client ID', 'APR ', 'Amount', '', '', '', '']); GetLoans();" class="button">Loans</button>
-		<button onclick="updateTable(['Account ID', 'Amount', 'Date', '', '', '', '']); GetTransactions();" class="button">Transactions</button>
+		<button @onclick="GetAccounts" class="button">Accounts</button>
+		<button @onclick="GetAddresses" class="button">Addresses</button>
+		<button @onclick="GetCards" class="button">Cards</button>
+		<button @onclick="GetClients" class="button">Clients</button>
+		<button @onclick="GetCprs" class="button">CPRs</button>
+		<button @onclick="GetEmployees" class="button">Employees</button>
+		<button @onclick="GetJobs" class="button">Jobs</button>
+		<button @onclick="GetLoans" class="button">Loans</button>
+		<button @onclick="GetTransactions" class="button">Transactions</button>
 	</div>
-
-
 
 	<div class="editbar">
 		<button @onclick="Create" class="button">Create</button>
@@ -39,14 +37,14 @@
 	<table id="table" class="table table-striped" style="width:100%">
 		<thead>
 			<tr id="header">
-				<th>1</th>
-				<th>2</th>
-				<th>3</th>
-				<th>4</th>
-				<th>5</th>
-				<th>6</th>
-				<th>7</th>
-				<th>8</th>
+				<th id="header1">1</th>
+				<th id="header2">2</th>
+				<th id="header3">3</th>
+				<th id="header4">4</th>
+				<th id="header5">5</th>
+				<th id="header6">6</th>
+				<th id="header7">7</th>
+				<th>Buttons</th>
 			</tr>
 		</thead>
 		<tbody id="tableBody">
@@ -89,14 +87,14 @@
 		</tbody>
 		<tfoot>
 			<tr id="footer">
-				<th>1</th>
-				<th>2</th>
-				<th>3</th>
-				<th>4</th>
-				<th>5</th>
-				<th>6</th>
-				<th>7</th>
-				<th>8</th>
+				<th id="footer1">1</th>
+				<th id="footer2">2</th>
+				<th id="footer3">3</th>
+				<th id="footer4">4</th>
+				<th id="footer5">5</th>
+				<th id="footer6">6</th>
+				<th id="footer7">7</th>
+				<th>Buttons</th>
 			</tr>
 		</tfoot>
 	</table>
@@ -125,7 +123,8 @@
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Accounts";
-		CallJS();
+		Console.WriteLine(button.ButtonName);
+		CallJS(button.ButtonName);
 		controller.TableHandler(button, false);
 	}
 
@@ -133,7 +132,7 @@
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Addresses";
-		CallJS();
+		CallJS(button.ButtonName);
 		controller.TableHandler(button, false);
 	}
 
@@ -141,7 +140,7 @@
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Cards";
-		CallJS();
+		CallJS(button.ButtonName);
 		controller.TableHandler(button, false);
 	}
 
@@ -149,7 +148,7 @@
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Clients";
-		CallJS();
+		CallJS(button.ButtonName);
 		controller.TableHandler(button, false);
 	}
 
@@ -157,7 +156,7 @@
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "CPRs";
-		CallJS();
+		CallJS(button.ButtonName);
 		controller.TableHandler(button, false);
 	}
 
@@ -165,7 +164,7 @@
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Employees";
-		CallJS();
+		CallJS(button.ButtonName);
 		controller.TableHandler(button, false);
 	}
 
@@ -173,7 +172,7 @@
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Jobs";
-		CallJS();
+		CallJS(button.ButtonName);
 		controller.TableHandler(button, false);
 	}
 
@@ -181,7 +180,7 @@
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Loans";
-		CallJS();
+		CallJS(button.ButtonName);
 		controller.TableHandler(button, false);
 	}
 
@@ -189,7 +188,7 @@
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Transactions";
-		CallJS();
+		CallJS(button.ButtonName);
 		controller.TableHandler(button, false);
 	}
 
@@ -221,7 +220,7 @@
 	/// </summary>
 
 	private List<Model.TableBlueprint> currentTable = new List<Model.TableBlueprint>();
-
+	/*
 	private List<Model.Properties.Account> accounts = new List<Model.Properties.Account>();
 	private List<Model.Properties.Address> addresses = new List<Model.Properties.Address>();
 	private List<Model.Properties.Card> cards = new List<Model.Properties.Card>();
@@ -231,13 +230,15 @@
 	private List<Model.Properties.Job> jobs = new List<Model.Properties.Job>();
 	private List<Model.Properties.Loan> loans = new List<Model.Properties.Loan>();
 	private List<Model.Properties.Transaction> transactions = new List<Model.Properties.Transaction>();
-
+	*/
 	/// <summary>
 	/// This method calls a javascript function, to delete the shown table
 	/// </summary>
-	private async Task CallJS()
+	private async Task CallJS(string button)
 	{
-		await runtime.InvokeVoidAsync("DeleteAll");
+		Console.WriteLine("gay " + button); // eww gay button, eww Magnus and Markus button - Shazil
+		await runtime.InvokeVoidAsync("Entry", button);
+		Console.WriteLine("gay " + button);
+		//await runtime.InvokeVoidAsync("DeleteAll");
 	}
 }
-	
