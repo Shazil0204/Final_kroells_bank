@@ -82,7 +82,6 @@
 					<td contenteditable="@_editing" class="tableContent">@table.Seven</td>
 					<td><button @onclick="Delete" class="button">Delete</button></td>
 				</tr>
-
 			}
 		</tbody>
 		<tfoot>
@@ -125,7 +124,8 @@
 		button.ButtonName = "Accounts";
 		Console.WriteLine(button.ButtonName);
 		CallJS(button.ButtonName);
-		controller.TableHandler(button, false);
+		controller.TableHandler(button);
+		SimpelMetode();
 	}
 
 	private void GetAddresses()
@@ -133,7 +133,7 @@
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Addresses";
 		CallJS(button.ButtonName);
-		controller.TableHandler(button, false);
+		controller.TableHandler(button);
 	}
 
 	private void GetCards()
@@ -141,7 +141,7 @@
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Cards";
 		CallJS(button.ButtonName);
-		controller.TableHandler(button, false);
+		controller.TableHandler(button);
 	}
 
 	private void GetClients()
@@ -149,7 +149,7 @@
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Clients";
 		CallJS(button.ButtonName);
-		controller.TableHandler(button, false);
+		controller.TableHandler(button);
 	}
 
 	private void GetCprs()
@@ -157,7 +157,7 @@
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "CPRs";
 		CallJS(button.ButtonName);
-		controller.TableHandler(button, false);
+		controller.TableHandler(button);
 	}
 
 	private void GetEmployees()
@@ -165,7 +165,7 @@
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Employees";
 		CallJS(button.ButtonName);
-		controller.TableHandler(button, false);
+		controller.TableHandler(button);
 	}
 
 	private void GetJobs()
@@ -173,7 +173,7 @@
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Jobs";
 		CallJS(button.ButtonName);
-		controller.TableHandler(button, false);
+		controller.TableHandler(button);
 	}
 
 	private void GetLoans()
@@ -181,7 +181,7 @@
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Loans";
 		CallJS(button.ButtonName);
-		controller.TableHandler(button, false);
+		controller.TableHandler(button);
 	}
 
 	private void GetTransactions()
@@ -189,21 +189,21 @@
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Transactions";
 		CallJS(button.ButtonName);
-		controller.TableHandler(button, false);
+		controller.TableHandler(button);
 	}
 
 	private void Delete()
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Delete";
-		controller.TableHandler(button, true);
+		controller.TableHandler(button);
 	}
 
 	private void Create()
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Create";
-		controller.TableHandler(button, true);
+		controller.TableHandler(button);
 	}
 
 	// Creates a boolean variable to keep track of the current edit state.
@@ -219,7 +219,9 @@
 	///
 	/// </summary>
 
-	private List<Model.TableBlueprint> currentTable = new List<Model.TableBlueprint>();
+	private List<Model.TableBlueprint> currentTable = new List<Model.TableBlueprint>()
+	{ 
+	};
 	/*
 	private List<Model.Properties.Account> accounts = new List<Model.Properties.Account>();
 	private List<Model.Properties.Address> addresses = new List<Model.Properties.Address>();
@@ -236,9 +238,24 @@
 	/// </summary>
 	private async Task CallJS(string button)
 	{
-		Console.WriteLine("gay " + button); // eww gay button, eww Magnus and Markus button - Shazil
+		Console.WriteLine("gay " + button); // eww gay button, eww Magnus and Marcus button - Shazil
 		await runtime.InvokeVoidAsync("Entry", button);
-		Console.WriteLine("gay " + button);
 		//await runtime.InvokeVoidAsync("DeleteAll");
+	}
+
+	private void SimpelMetode()
+	{
+		Model.Properties.Account account = new();
+		Model.Properties.Current current = new();
+
+		current.One = "1";
+		current.Two = "2";
+		current.Three = "3";
+		current.Four = "";
+		current.Five = "";
+		current.Six = "";
+		current.Seven = "";
+
+		currentTable.Add(current);
 	}
 }

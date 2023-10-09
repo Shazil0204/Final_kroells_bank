@@ -1,7 +1,6 @@
 ﻿const thead = document.getElementById('header');
 const tbody = document.getElementById('tableBody');
 const tfoot = document.getElementById('footer');
-const table = document.getElementById('table')
 
 function Entry(buttonName) {
     switch (buttonName) {
@@ -12,16 +11,16 @@ function Entry(buttonName) {
             var column = ["", "Postal code", "City", "Street", "House Number", "", "", ""]
             break;
         case "Cards":
-            var column = ["", "Card Number", "Expire Date", "CVV", "Client Name", "Pin", "Spendig", ""]
+            var column = ["", "Card ID", "Card Number", "Expire Date", "CVV", "Client", "Pin","Spending"]
             break;
         case "Clients":
-            var column = ["", "Client Name", "Username", "Password Hashed", "", "", "", ""]
+            var column = ["", "Client Name", "Username", "Password", "", "", "", ""]
             break;
         case "CPRs":
             var column = ["", "Client ID", "AdressID", "EmployeeID", "CPR Number", "", "", ""]
             break;
         case "Employees":
-            var column = ["", "Position", "Username", "Password Hashed", "", "", "", ""]
+            var column = ["", "Position", "Username", "Password", "", "", "", ""]
             break;
         case "Jobs":
             var column = ["", "Income", "Job Name", "", "", "", "", ""]
@@ -35,35 +34,66 @@ function Entry(buttonName) {
     }
 
     updateTable(column);
+    deleteRows();
 }
 
-function updateTable(columnNames) { /*
-    // deletes the footer and the header
-    let deleteHeader = document.querySelectorAll('th')
-    deleteHeader.forEach(element => {
-        console.log(element);
-        element.remove();
-    }); */
+function updateTable(columnNames) {
 
-    // Create the header
-    //for (let i = 0; i < 7; i++) {
-    //    const childElement = document.createElement("th");
-    //    childElement.textContent = columnNames[i]
-    //    thead.appendChild(childElement);
-    //    console.log(childElement)
-    //}
     for (let i = 1; i < 8; i++) {
         const headerId = document.getElementById(`header${i}`)
         headerId.innerText = columnNames[i]
         const footerId = document.getElementById(`footer${i}`)
         footerId.innerText = columnNames[i]
     }
-    
-    //const buttons = document.createElement('button')
-    //thead.appendChild(buttons);
-    //tfoot.appendChild(buttons);
 
-    console.log(table)
+    //while (tbody.firstChild) {
+    //    tbody.removeChild(tbody.firstChild);
+    //}
+
+    //const emptyParent = tbody.cloneNode(false);
+    //tbody.parentNode.replaceChild(emptyParent, tbody);
+
+    //if (tbody.firstChild) {
+    //    tbody.firstChild.remove();
+    //}
+
+    if (tbody) {
+        while (tbody.firstChild) {
+            tbody.removeChild(tbody.firstChild);
+        }
+    }
+}
+
+function deleteRows() {
+    var table = document.getElementById(table);
+    var tbody = table.querySelector("tbody");
+
+    while (tbody.firstChild) {
+        tbody.removeChild(tbody.firstChild);
+    }
+}
+
+function removeTable() {
+    const table = document.getElementById("tableBody");
+
+    table.parentNode.removeChild(table);
+}
+
+
+// //This function ruins the damn javascript on the website
+//function clearTable() {
+
+//    const table = document.getElementById("table");
+//    // Loops through each row in the table (skips first row because its contains headers)
+//    for (let i = 1; i < table.rows.length; i++) {
+//        const row = table.rows[i];
+//        // Lopp through each cell in the row and clear its content
+//        for (let j = 0; j < row.cells.length; j++) {    
+//            row.cells[j].innerText = "";
+//        }
+//    }
+//}
+
     /*
     // Create and append new header cells
     const headerRow = document.createElement('tr');
@@ -93,14 +123,6 @@ function updateTable(columnNames) { /*
 
     // Loop through the <th> elements and apply the function
     */
-}
 
-function GetAccounts() {
-    console.log('GetAccounts called');
-    // Add your existing functionality here
-}
 
-function GetAddresses() {
-    console.log('GetAddresses called');
-    // Add your existing functionality here
-}
+

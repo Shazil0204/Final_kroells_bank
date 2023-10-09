@@ -7,7 +7,7 @@ namespace KroellsManagement.Classes.Controllers
 	{
 		private IJSRuntime _runtime;
 
-		internal void TableHandler(Button button, bool edit)
+		internal void TableHandler(Button button)
 		{
 			// Gets the connection string from appsettings
 			string connection = Environment.GetEnvironmentVariable("DatabaseConnection");
