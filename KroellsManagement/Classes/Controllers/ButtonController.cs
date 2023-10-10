@@ -54,7 +54,7 @@ namespace KroellsManagement.Classes.Controllers
 			return currentState;
 		}
 
-		internal void Delete(string id)
+		internal void Delete(string id, string tabel)
 		{
 			string storedProcedure = "";
 

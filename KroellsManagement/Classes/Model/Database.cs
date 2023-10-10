@@ -9,19 +9,19 @@ namespace KroellsManagement.Classes.Model
     /// </summary>
     internal class Database
     {
-        private protected string _username;
-        private protected string _password;
+        private protected string username;
+        private protected string password;
 
         internal string Username
         {
-            get { return _username; }
-            set { _username = value; }
+            get { return username; }
+            set { username = value; }
         }
 
         internal string Password
         {
-            get { return _password; }
-            set { _password = value; }
+            get { return password; }
+            set { password = value; }
         }
 
         internal List<string[]> GetTable(Button button)
@@ -92,8 +92,8 @@ namespace KroellsManagement.Classes.Model
                 command.CommandType = CommandType.StoredProcedure;
 
                 // Input parameters
-                command.Parameters.AddWithValue("@Username", _username); // Replace with your username
-                command.Parameters.AddWithValue("@Password", _password); // Replace with your password
+                command.Parameters.AddWithValue("@Username", username); // Replace with your username
+                command.Parameters.AddWithValue("@Password", password); // Replace with your password
 
                 // Output parameter for result
                 SqlParameter resultParameter = command.Parameters.Add("@Result", SqlDbType.Int);
@@ -122,7 +122,7 @@ namespace KroellsManagement.Classes.Model
         /// </summary>
         internal void DeleteRow()
         {
-
+            
         }
 
         /// <summary>

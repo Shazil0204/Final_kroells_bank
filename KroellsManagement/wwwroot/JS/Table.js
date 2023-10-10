@@ -16,7 +16,7 @@ function Entry(buttonName) {
             break;
         // If button "Addresses" is pressed it fill these into the header and footer
         case "Addresses":
-            var column = ["", "Postal code", "City", "Street", "House Number", "", "", ""]
+            var column = ["", "Address ID", "Postal code", "City", "Street", "House Number", "", ""]
             break;
         // If button "Cards" is pressed it fill these into the header and footer
         case "Cards":
@@ -24,27 +24,27 @@ function Entry(buttonName) {
             break;
             // If button "Clients" is pressed it fill these into the header and footer
         case "Clients":
-            var column = ["", "Client Name", "Username", "Password", "", "", "", ""]
+            var column = ["", "Client ID", "Client Name", "Username", "Password", "", "", ""]
             break;
         // If button "CPRs" is pressed it fill these into the header and footer
         case "CPRs":
-            var column = ["", "Client ID", "AdressID", "EmployeeID", "CPR Number", "", "", ""]
+            var column = ["", "CPR ID", "Client ID", "AdressID", "EmployeeID", "CPR Number", "", ""]
             break;
         // If button "Employees" is pressed it fill these into the header and footer
         case "Employees":
-            var column = ["", "Position", "Username", "Password", "", "", "", ""]
+            var column = ["", "Employee ID", "Position", "Username", "Password", "", "", ""]
             break;
         // If button "Jobs" is pressed it fill these into the header and footer
         case "Jobs":
-            var column = ["", "Income", "Job Name", "", "", "", "", ""]
+            var column = ["", "Job ID", "Income", "Job Name", "", "", "", ""]
             break;
         // If button "Loans" is pressed it fill these into the header and footer
         case "Loans":
-            var column = ["", "Client ID", "APR", "Amount", "", "", "", ""]
+            var column = ["", "Loan ID", "Client ID", "APR", "Amount", "", "", ""]
             break;
             // If button "Transactions" is pressed it fill these into the header and footer
         case "Transactions":
-            var column = ["", "Account ID", "Amount", "Date", "", "", "", ""]
+            var column = ["", "Transaction ID", "Account ID", "Amount", "Date", "", "", ""]
             break;
     }
     // Calls updateTable function
@@ -72,8 +72,8 @@ function updateTable(columnNames) {
 function clearTable() {
 
     const table = document.getElementById("table");
-    // Loops through each row in the table (skips first row because its contains headers)
-    for (let i = 1; i < table.rows.length; i++) {
+    // Loops through each row in the table (skips first row because its contains headers and minuses with 1 becauses we want to keep the footer intact)
+    for (let i = 1; i < table.rows.length -1; i++) {
         const row = table.rows[i];
         // Lopp through each cell in the row and clear its content
         for (let j = 0; j < row.cells.length; j++) {

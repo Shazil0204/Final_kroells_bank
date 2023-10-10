@@ -2,6 +2,7 @@
 @inject NavigationManager NavigationManager
 @inject IJSRuntime runtime;
 @namespace KroellsManagement.Classes
+@using Microsoft.AspNetCore.Mvc;
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +30,7 @@
 	</div>
 
 	<div class="editbar">
-		<button onclick="Create" class="button">Create</button>
+		<button @onclick="Create" class="button">Create</button>
 		<button @onclick="EditLock" class="button">Edit Lock</button>
 	</div>
 	<div id="Table Container">
@@ -49,7 +50,7 @@
 		</thead>
 		<tbody id="tableBody">
 			<tr>
-				<td contenteditable="@_editing" class="ta-bleContent">1</td>
+				<td class="ta-bleContent">1</td>
 				<td contenteditable="@_editing" class="tableContent">$1,000.00</td>
 				<td contenteditable="@_editing" class="tableContent"></td>
 				<td contenteditable="@_editing" class="tableContent"></td>
@@ -57,10 +58,9 @@
 				<td contenteditable="@_editing" class="tableContent"></td>
 				<td contenteditable="@_editing" class="tableContent"></td>
 				<td><button @onclick="Delete" class="button" id="table">Delete</button></td>
-
 			</tr>
 			<tr>
-				<td contenteditable="@_editing" class="tableContent">2</td>
+				<td class="tableContent">2</td>
 				<td contenteditable="@_editing" class="tableContent">$500.00</td>
 				<td contenteditable="@_editing" class="tableContent"></td>
 				<td contenteditable="@_editing" class="tableContent"></td>
@@ -70,19 +70,21 @@
 				<td><button @onclick="Delete" class="button" id="table">Delete</button></td>
 
 			</tr>
-			@foreach (Model.Properties.Current table in currentTable)
-			{
-				<tr>
-					<td contenteditable="@_editing" class="tableContent">@table.One</td>
-					<td contenteditable="@_editing" class="tableContent">@table.Two</td>
-					<td contenteditable="@_editing" class="tableContent">@table.Three</td>
-					<td contenteditable="@_editing" class="tableContent">@table.Four</td>
-					<td contenteditable="@_editing" class="tableContent">@table.Five</td>
-					<td contenteditable="@_editing" class="tableContent">@table.Six</td>
-					<td contenteditable="@_editing" class="tableContent">@table.Seven</td>
-					<td><button @onclick="Delete" class="button">Delete</button></td>
-				</tr>
-			}
+				@for (int i = 0; i < currentTable.Count; i++)
+				{
+					Model.Properties.Current current = (Model.Properties.Current)currentTable[i];
+
+					<tr>
+						<td contenteditable="@_editing" @oninput="() => UpdateDatabase(i)" class="tableContent">@current.One</td>
+						<td contenteditable="@_editing" class="tableContent">@current.Two</td>
+						<td contenteditable="@_editing" class="tableContent">@current.Three</td>
+						<td contenteditable="@_editing" class="tableContent">@current.Four</td>
+						<td contenteditable="@_editing" class="tableContent">@current.Five</td>
+						<td contenteditable="@_editing" class="tableContent">@current.Six</td>
+						<td contenteditable="@_editing" class="tableContent">@current.Seven</td>
+						<td><button  class="button">Delete</button></td>
+					</tr>
+				}
 		</tbody>
 		<tfoot>
 			<tr id="footer">
@@ -198,19 +200,26 @@
 		ConvertToRow(database.GetTable(button));
 	}
 
+	private string _currentlyDisplayed;
+	private int _id;
+
 	private void Delete()
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Delete";
 		controller.TableHandler(button);
+
+		// DATABASE DELETE ROW, IDENTIFY ROW
+
+
+		// REFRESH
 	}
 
-	private void Create()
+	public async Task UpdateDatabase(int rowValue)
 	{
-		Model.Properties.Button button = new Model.Properties.Button();
-		button.ButtonName = "Create";
-		controller.TableHandler(button);
+		
 	}
+
 
 	// Creates a boolean variable to keep track of the current edit state.
 	private bool _editing;
@@ -227,31 +236,24 @@
 	///
 	/// </summary>
 
-	private List<Model.TableBlueprint> currentTable = new List<Model.TableBlueprint>()
-	{ 
-		new Model.Properties.Current(){
-			One = "1",
-			Two = "1",
-			Three = "1",
-			Four = "1",
-			Five = "1",
-			Six = "1",
-			Seven = "1"
-		}
-	};
+	private List<Model.TableBlueprint> currentTable = new List<Model.TableBlueprint>();
 	/// <summary>
 	/// This method calls a javascript function, to delete the shown table
 	/// </summary>
 	private async Task CallJS(string button)
 	{
-
 		await runtime.InvokeVoidAsync("Entry", button);
 		//await runtime.InvokeVoidAsync("DeleteAll");
 	}
 
+	private async Task Create()
+	{
+		await runtime.InvokeVoidAsync("AddRow");
+	}
+
 	private void ConvertToRow(List<string[]> data)
 	{
-		foreach(string[] array in data)
+		foreach (string[] array in data)
 		{
 			Model.Properties.Current current = new();
 
@@ -261,27 +263,27 @@
 			current.Two = array[1];
 			current.Three = array[2];
 
-			if(length > 3) 
+			if (length > 3)
 			{
 				current.Four = array[3];
 
-				if(length > 4)
+				if (length > 4)
 				{
 					current.Five = array[4];
 
-					if(length > 5)
+					if (length > 5)
 					{
 						current.Six = array[5];
-						if(length > 6)
-						{
 
-						current.Seven = array[6];
+						if (length > 6)
+						{
+							current.Seven = array[6];
 						}
 					}
 				}
 			}
 
-			//currentTable.add(current);
+			currentTable.Add(current);
 		}
 	}
 }
