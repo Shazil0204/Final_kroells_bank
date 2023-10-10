@@ -5,8 +5,6 @@ namespace KroellsManagement.Classes.Controllers
 {
     internal class ButtonController
 	{
-		private IJSRuntime _runtime;
-
 		internal void TableHandler(Button button)
 		{
 			// Gets the connection string from appsettings

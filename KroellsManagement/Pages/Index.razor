@@ -1,35 +1,62 @@
-﻿@inject NavigationManager NavigationManager
-
-@page "/"
+﻿@page "/"
 
 <PageTitle>Management Login</PageTitle>
 
-<div class="container" style="text-align:center;">
-    <div id="LogoAndText>" style="margin-bottom: 50px;">
-        <img style="height: 450px;" src="/img/FrktLogo.png" />
-    </div>
+@* @attribute [Authorize] *@
 
-    <div id="Input">
-        <form name="Username" method="post" style="margin-bottom: 5px;">
-            <input type="email" id="username" placeholder="Username"  /> 
-        </form>
+<div class="d-flex align-items-center justify-content-center vh-100">
+    <div class="container" style="width:700px; height:650px; text-align:center; box-shadow: 5px 5px 10px rgba(0,0,0,0.3); border-radius: 10px;">
+                
+        <div id="LogoAndText" style="margin-bottom: 10px;">
+            <img style="height: 450px;" src="/img/FrktLogo.png" />
+        </div>
+
+        <div id="Input">
+            <EditForm name="Input" Model="@db" method="post" style="margin-bottom: 5px;">
+                <InputText @bind-Value="db.Username" type="text" id="username" placeholder="Username" style=" margin-bottom: 3px" /> <br />
+                <InputText @bind-Value="db.Password" type="password" id="password" placeholder="Password" />
+            </EditForm>
     
-        <form name="Password" method="post" >
-            <input type="password" id="password" placeholder="Password" />
-        </form>
-    
-            <div id="Button" style=" margin-top: 20px; margin-bottom: 20px;">
-                <button class="btn btn-primary" @onclick="NavigateToAdmin"> Sign in </button>
+            <div id="Button" style="margin-top: 20px;">
+                <button type="submit" @onclick="SignIn" class="btn btn-primary"> Sign in </button>
+            </div>
+
+            <div id="EmployeeError" style="border: 1px solid black; margin:auto; visibility: @(showError /*this need to be a sbyte*/ ? "visible" : "hidden")">
+            
+                <p style="color:red;">Something Wrong With The Input</p>
+
+            </div>
+
         </div>
     </div>
-</div>
-
+</div> 
 
 
 @code
 {
-    private void NavigateToAdmin()
+    Classes.Model.Database db = new Classes.Model.Database();
+    @inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
+    
+    // 1. Add a boolean field to track the visibility of EmployeeError
+    private bool showError = false;
+    
+    private async Task SignIn()
     {
-        NavigationManager.NavigateTo("/Admin");
+        sbyte isAuthenticated = await db.DBConnection();
+        
+        if (isAuthenticated == 1)
+        {
+            NavigationManager.NavigateTo("/admin", false);
+        }
+        else if (isAuthenticated == -1)
+        {
+            LoginError();
+        }  // i have to make more if statements for each error
+    }
+
+    private void LoginError()  // i have to make more methods for each if statement
+    {
+        // 3. Set showError to true to make the EmployeeError div visible
+        showError = true;
     }
 }

@@ -124,9 +124,13 @@ a, .btn-link {
 
     /* Style table cells (td) */
     .table td {
-        padding: 8px; /* Cell padding */
+        padding: 0px; /* Cell padding */
     }
 
 .tableContent, #table {
     text-align: center;
+}
+
+td {
+    padding: 0px;
 }

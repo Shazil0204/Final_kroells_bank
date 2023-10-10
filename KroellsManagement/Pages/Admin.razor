@@ -29,7 +29,7 @@
 	</div>
 
 	<div class="editbar">
-		<button @onclick="Create" class="button">Create</button>
+		<button onclick="Create" class="button">Create</button>
 		<button @onclick="EditLock" class="button">Edit Lock</button>
 	</div>
 	<div id="Table Container">
@@ -115,17 +115,15 @@
 	/// The EditLock button is a bit different, because it doesnt need to be identified and it has its own method in the ButtonController class.
 	/// </summary>
 
-
-	Controllers.ButtonController controller = new Controllers.ButtonController();
+	Model.Database database = new Model.Database();
 
 	private void GetAccounts()
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Accounts";
-		Console.WriteLine(button.ButtonName);
 		CallJS(button.ButtonName);
 		controller.TableHandler(button);
-		SimpelMetode();
+		ConvertToRow(database.GetTable(button));
 	}
 
 	private void GetAddresses()
@@ -134,6 +132,7 @@
 		button.ButtonName = "Addresses";
 		CallJS(button.ButtonName);
 		controller.TableHandler(button);
+		ConvertToRow(database.GetTable(button));
 	}
 
 	private void GetCards()
@@ -142,6 +141,7 @@
 		button.ButtonName = "Cards";
 		CallJS(button.ButtonName);
 		controller.TableHandler(button);
+		ConvertToRow(database.GetTable(button));
 	}
 
 	private void GetClients()
@@ -150,6 +150,7 @@
 		button.ButtonName = "Clients";
 		CallJS(button.ButtonName);
 		controller.TableHandler(button);
+		ConvertToRow(database.GetTable(button));
 	}
 
 	private void GetCprs()
@@ -158,6 +159,7 @@
 		button.ButtonName = "CPRs";
 		CallJS(button.ButtonName);
 		controller.TableHandler(button);
+		ConvertToRow(database.GetTable(button));
 	}
 
 	private void GetEmployees()
@@ -166,6 +168,7 @@
 		button.ButtonName = "Employees";
 		CallJS(button.ButtonName);
 		controller.TableHandler(button);
+		ConvertToRow(database.GetTable(button));
 	}
 
 	private void GetJobs()
@@ -174,6 +177,7 @@
 		button.ButtonName = "Jobs";
 		CallJS(button.ButtonName);
 		controller.TableHandler(button);
+		ConvertToRow(database.GetTable(button));
 	}
 
 	private void GetLoans()
@@ -182,6 +186,7 @@
 		button.ButtonName = "Loans";
 		CallJS(button.ButtonName);
 		controller.TableHandler(button);
+		ConvertToRow(database.GetTable(button));
 	}
 
 	private void GetTransactions()
@@ -190,6 +195,7 @@
 		button.ButtonName = "Transactions";
 		CallJS(button.ButtonName);
 		controller.TableHandler(button);
+		ConvertToRow(database.GetTable(button));
 	}
 
 	private void Delete()
@@ -209,6 +215,8 @@
 	// Creates a boolean variable to keep track of the current edit state.
 	private bool _editing;
 
+	Controllers.ButtonController controller = new Controllers.ButtonController();
+
 	private void EditLock()
 	{
 		// Changes the edit state, inside the ButtonController
@@ -221,41 +229,59 @@
 
 	private List<Model.TableBlueprint> currentTable = new List<Model.TableBlueprint>()
 	{ 
+		new Model.Properties.Current(){
+			One = "1",
+			Two = "1",
+			Three = "1",
+			Four = "1",
+			Five = "1",
+			Six = "1",
+			Seven = "1"
+		}
 	};
-	/*
-	private List<Model.Properties.Account> accounts = new List<Model.Properties.Account>();
-	private List<Model.Properties.Address> addresses = new List<Model.Properties.Address>();
-	private List<Model.Properties.Card> cards = new List<Model.Properties.Card>();
-	private List<Model.Properties.Client> clients = new List<Model.Properties.Client>();
-	private List<Model.Properties.Cpr> cprs = new List<Model.Properties.Cpr>();
-	private List<Model.Properties.Employee> employees = new List<Model.Properties.Employee>();
-	private List<Model.Properties.Job> jobs = new List<Model.Properties.Job>();
-	private List<Model.Properties.Loan> loans = new List<Model.Properties.Loan>();
-	private List<Model.Properties.Transaction> transactions = new List<Model.Properties.Transaction>();
-	*/
 	/// <summary>
 	/// This method calls a javascript function, to delete the shown table
 	/// </summary>
 	private async Task CallJS(string button)
 	{
-		Console.WriteLine("gay " + button); // eww gay button, eww Magnus and Marcus button - Shazil
+
 		await runtime.InvokeVoidAsync("Entry", button);
 		//await runtime.InvokeVoidAsync("DeleteAll");
 	}
 
-	private void SimpelMetode()
+	private void ConvertToRow(List<string[]> data)
 	{
-		Model.Properties.Account account = new();
-		Model.Properties.Current current = new();
+		foreach(string[] array in data)
+		{
+			Model.Properties.Current current = new();
 
-		current.One = "1";
-		current.Two = "2";
-		current.Three = "3";
-		current.Four = "";
-		current.Five = "";
-		current.Six = "";
-		current.Seven = "";
+			byte length = (byte)array.Length;
 
-		currentTable.Add(current);
+			current.One = array[0];
+			current.Two = array[1];
+			current.Three = array[2];
+
+			if(length > 3) 
+			{
+				current.Four = array[3];
+
+				if(length > 4)
+				{
+					current.Five = array[4];
+
+					if(length > 5)
+					{
+						current.Six = array[5];
+						if(length > 6)
+						{
+
+						current.Seven = array[6];
+						}
+					}
+				}
+			}
+
+			//currentTable.add(current);
+		}
 	}
 }
