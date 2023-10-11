@@ -1,0 +1,311 @@
+﻿@page "/Admin"
+@inject NavigationManager NavigationManager
+@inject IJSRuntime runtime;
+@namespace KroellsManagement.Classes
+@using Microsoft.AspNetCore.Mvc;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin Page</title>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+	<link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+	<link rel="stylesheet" href="~/css/site.css">
+
+</head>
+<body>
+
+	<div class="divert">
+		<button @onclick="GetAccounts" class="button">Accounts</button>
+		<button @onclick="GetAddresses" class="button">Addresses</button>
+		<button @onclick="GetCards" class="button">Cards</button>
+		<button @onclick="GetClients" class="button">Clients</button>
+		<button @onclick="GetCprs" class="button">CPRs</button>
+		<button @onclick="GetEmployees" class="button">Employees</button>
+		<button @onclick="GetJobs" class="button">Jobs</button>
+		<button @onclick="GetLoans" class="button">Loans</button>
+		<button @onclick="GetTransactions" class="button">Transactions</button>
+	</div>
+
+	<div class="editbar">
+		<button @onclick="Create" class="button">Create</button>
+		<button @onclick="EditLock" class="button">Edit Lock</button>
+	</div>
+	<div id="Table Container">
+	</div>
+	<table id="table" class="table table-striped" style="width:100%">
+		<thead>
+			<tr id="header">
+				<th id="header1">1</th>
+				<th id="header2">2</th>
+				<th id="header3">3</th>
+				<th id="header4">4</th>
+				<th id="header5">5</th>
+				<th id="header6">6</th>
+				<th id="header7">7</th>
+				<th>Buttons</th>
+			</tr>
+		</thead>
+		<tbody id="tableBody">
+			@for (int i = 0; i < currentTable.Count; i++)
+			{
+				Model.Properties.Current current = (Model.Properties.Current)currentTable[i];
+
+				int id = i;
+
+				<tr>
+					<td id="cell0_@i" class="tableContent">@current.One</td>
+					<td id="cell1_@i" contenteditable="@_editing" class="tableContent">@current.Two</td>
+					<td id="cell2_@i" contenteditable="@_editing" class="tableContent">@current.Three</td>
+					<td id="cell3_@i" contenteditable="@_editing" class="tableContent">@current.Four</td>
+					<td id="cell4_@i" contenteditable="@_editing" class="tableContent">@current.Five</td>
+					<td id="cell5_@i" contenteditable="@_editing" class="tableContent">@current.Six</td>
+					<td id="cell6_@i" contenteditable="@_editing" class="tableContent">@current.Seven</td>
+					<td><button id="save_@i" @onclick="() => UpdateDatabase(id)" class="button">Save</button><button @onclick="() => Delete(id)" class="button">Delete</button></td>
+				</tr>
+			}
+		</tbody>
+		<tfoot>
+			<tr id="footer">
+				<th id="footer1">1</th>
+				<th id="footer2">2</th>
+				<th id="footer3">3</th>
+				<th id="footer4">4</th>
+				<th id="footer5">5</th>
+				<th id="footer6">6</th>
+				<th id="footer7">7</th>
+				<th>Buttons</th>
+			</tr>
+		</tfoot>
+	</table>
+	<label id="errorMessage">Could not save to database!</label>
+</body>
+</html>
+
+
+@code {
+
+	/// <summary>
+	/// This first part of the scope has a lot of methods, which gets called by only 1 button, from the user-interface.
+	/// Each method identifies a new button, using the button object, and gives the button a name.
+	/// It needs to know the button and a boolean value if its editing or not.
+	///
+	/// Editing refers to the creating and deleting tables.
+	///
+	/// The EditLock button is a bit different, because it doesnt need to be identified and it has its own method in the ButtonController class.
+	/// </summary>
+
+	//String to keep track of the currently displayed table
+	private string _currentDisplay = "";
+	private List<Model.TableBlueprint> currentTable = new List<Model.TableBlueprint>();
+
+	Model.Database database = new Model.Database();
+
+	private void GetAccounts()
+	{
+		Model.Properties.Button button = new Model.Properties.Button();
+		button.ButtonName = "Accounts";
+		_currentDisplay = button.ButtonName;
+		CallJS(button.ButtonName);
+		ConvertToRow(database.GetTable(button.ButtonName));
+	}
+
+	private void GetAddresses()
+	{
+		Model.Properties.Button button = new Model.Properties.Button();
+		button.ButtonName = "Addresses";
+		_currentDisplay = button.ButtonName;
+		CallJS(button.ButtonName);
+		ConvertToRow(database.GetTable(button.ButtonName));
+	}
+
+	private void GetCards()
+	{
+		Model.Properties.Button button = new Model.Properties.Button();
+		button.ButtonName = "Cards";
+		_currentDisplay = button.ButtonName;
+		CallJS(button.ButtonName);
+		ConvertToRow(database.GetTable(button.ButtonName));
+	}
+
+	private void GetClients()
+	{
+		Model.Properties.Button button = new Model.Properties.Button();
+		button.ButtonName = "Clients";
+		_currentDisplay = button.ButtonName;
+		CallJS(button.ButtonName);
+		ConvertToRow(database.GetTable(button.ButtonName));
+	}
+
+	private void GetCprs()
+	{
+		Model.Properties.Button button = new Model.Properties.Button();
+		button.ButtonName = "CPRs";
+		_currentDisplay = button.ButtonName;
+		CallJS(button.ButtonName);
+		ConvertToRow(database.GetTable(button.ButtonName));
+	}
+
+	private void GetEmployees()
+	{
+		Model.Properties.Button button = new Model.Properties.Button();
+		button.ButtonName = "Employees";
+		_currentDisplay = button.ButtonName;
+		CallJS(button.ButtonName);
+		ConvertToRow(database.GetTable(button.ButtonName));
+	}
+
+	private void GetJobs()
+	{
+		Model.Properties.Button button = new Model.Properties.Button();
+		button.ButtonName = "Jobs";
+		_currentDisplay = button.ButtonName;
+		CallJS(button.ButtonName);
+		ConvertToRow(database.GetTable(button.ButtonName));
+	}
+
+	private void GetLoans()
+	{
+		Model.Properties.Button button = new Model.Properties.Button();
+		button.ButtonName = "Loans";
+		_currentDisplay = button.ButtonName;
+		CallJS(button.ButtonName);
+		ConvertToRow(database.GetTable(button.ButtonName));
+	}
+
+	private void GetTransactions()
+	{
+		Model.Properties.Button button = new Model.Properties.Button();
+		button.ButtonName = "Transactions";
+		_currentDisplay = button.ButtonName;
+		CallJS(button.ButtonName);
+		ConvertToRow(database.GetTable(button.ButtonName));
+	}
+
+	/// <summary>
+	/// The delete method gets rid of the row, which the delete button is pressed from.
+	/// It removes the row, inside the database, then it refreshes the HTML table.
+	/// </summary>
+	/// <param name="rowId"></param>
+	/// <returns></returns>
+	private async Task Delete(int rowId)
+	{
+		string cellContent = "";
+		cellContent = await runtime.InvokeAsync<string>("getContentFromCell", $"cell{0}_{rowId}");
+
+		// deletes the row in the database
+		database.DeleteData(cellContent, _currentDisplay);
+
+		// Calls the ClearTable function to remove all rows currently displayed in the HTML table.
+		await runtime.InvokeVoidAsync("ClearTable");
+
+		// Gets data from the database and converts it to rows, for the HTML table.
+		ConvertToRow(database.GetTable(_currentDisplay));
+
+	}
+
+	/// <summary>
+	/// This method takes a parameter of the row id, to determine which row has to be updated.
+	/// Then it goes through each of the elements in the row and updates them to the database.
+	/// </summary>
+	/// <param name="rowValue"></param>
+	/// <returns></returns>
+	private async Task UpdateDatabase(int rowId)
+	{
+		string[] cellContent = new string[7];
+		for (int i = 0; i < cellContent.Length; i++)
+		{
+			cellContent[i] = await runtime.InvokeAsync<string>("getContentFromCell", $"cell{i}_{rowId}");
+		}
+
+		database.ApplyChanges(cellContent, _currentDisplay.ToUpper(), runtime);
+	}
+
+	// Creates a boolean variable to keep track of the current edit state.
+	private bool _editing;
+
+	private void EditLock()
+	{
+		// Changes the edit state, inside the ButtonController
+		_editing = !_editing;
+	}
+
+	/// <summary>
+	/// This method calls a javascript function, to delete the shown table
+	/// </summary>
+	private async Task CallJS(string button)
+	{
+		await runtime.InvokeVoidAsync("Entry", button);
+		//await runtime.InvokeVoidAsync("DeleteAll");
+	}
+
+	/// <summary>
+	/// This method creates a new row inside the database, then refreshes the HTML table to display the table with the new row.
+	/// </summary>
+	/// <returns></returns>
+	private async Task Create()
+	{
+		// Creates a new row in the currently selected table
+		database.CreateTable(_currentDisplay);
+
+		// Calls the ClearTable function to remove all rows currently displayed in the HTML table.
+		await runtime.InvokeVoidAsync("ClearTable");
+
+		// Generates new rows in the HTML table.
+		ConvertToRow(database.GetTable(_currentDisplay));
+	}
+
+	/// <summary>
+	/// This method puts data into the 7 cells in a row.
+	/// It uses if statements to determine if it should write data in the cells.
+	/// If a table only has 4 values in the table, then it will only go to the 4th position inside the array, due to the if statements.
+	/// These variables get stored in properties, in the current class.
+	/// The object then gets output into the currentTable list, which gets displayed in the HTML
+	/// The parameter is a list containing string arrays. The list is one row and the string[] is the attributes inside the list.
+	/// </summary>
+	/// <param name="data"></param>
+	private void ConvertToRow(List<string[]> data)
+	{
+		foreach (string[] array in data)
+		{
+			Model.Properties.Current current = new();
+
+			byte length = (byte)array.Length;
+
+			current.One = array[0];
+			current.Two = array[1];
+			current.Three = array[2];
+
+			if (length > 3)
+			{
+				current.Four = array[3];
+
+				if (length > 4)
+				{
+					current.Five = array[4];
+
+					if (length > 5)
+					{
+						current.Six = array[5];
+
+						if (length > 6)
+						{
+							current.Seven = array[6];
+						}
+					}
+				}
+			}
+
+			currentTable.Add(current);
+			Console.WriteLine(runtime + "3");
+		}
+	}
+
+	internal async Task ShowError(IJSRuntime runtime)
+	{
+		// Use _runtime to invoke JavaScript functions
+		await runtime.InvokeVoidAsync("showError");
+	}
+}

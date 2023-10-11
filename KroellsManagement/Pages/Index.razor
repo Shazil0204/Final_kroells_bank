@@ -1,0 +1,72 @@
+﻿@page "/"
+
+<PageTitle>Management Login</PageTitle>
+
+@* @attribute [Authorize] *@
+
+<div class="d-flex align-items-center justify-content-center vh-100">
+    <!-- This div centers its contents both horizontally and vertically on the page -->
+   <div class="container" style="width:500px; height:650px; text-align:center; box-shadow: 5px 5px 10px rgba(0,0,0,0.3); border-radius: 10px; margin-left: auto; margin-right: auto; background-image: url('/img/KroellsBankBackground.png'); background-size: cover;">
+        <!-- This container sets the width, height, and adds a shadow and border-radius to the inner content -->
+
+        <div id="LogoAndText" style="margin-bottom: 10px;">
+            <!-- Container for logo and text -->
+            <img style="height: 450px;" src="/img/FrktLogo.png" />
+            <!-- Image element displaying a logo -->
+        </div>
+
+        <div id="Input">
+            <!-- Container for input form -->
+            <EditForm name="Input" Model="@db" method="post" style="margin-bottom: 5px;">
+                <!-- EditForm for data binding and post method -->
+                <InputText @bind-Value="db.Username" type="text" id="username" placeholder="Username" style=" margin-bottom: 3px; border-radius: 5px;" />
+                <!-- Input field for username -->
+                <br />
+                <InputText @bind-Value="db.Password" type="password" id="password" placeholder="Password" style="border-radius: 5px;" />
+                <!-- Input field for password -->
+            </EditForm>
+
+            <div id="Button" style="margin-top: 20px;">
+                <!-- Container for the sign-in button -->
+                <button type="submit" @onclick="SignIn" class="button"> Sign in </button>
+                <!-- Sign-in button with a click event -->
+            </div>
+
+            <div id="EmployeeError" style="border: 1px solid black; margin:auto; visibility: @(showError /*this need to be a sbyte*/ ? "visible" : "hidden")">
+                <!-- Container for displaying error message -->
+                <p style="color:red;">Something Wrong With The Input</p>
+                <!-- Error message in red text -->
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@code
+{
+    Classes.Model.Database db = new Classes.Model.Database();
+    @inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
+    
+    // 1. Add a boolean field to track the visibility of EmployeeError
+    private bool showError = false;
+    
+    private async Task SignIn()
+    {
+        sbyte isAuthenticated = await db.DBConnection();
+        Console.WriteLine(isAuthenticated);
+        if (isAuthenticated == 1)
+        {
+            NavigationManager.NavigateTo("/admin", false);
+        }
+        else if (isAuthenticated == -1)
+        {
+            LoginError();
+        }  // i have to make more if statements for each error
+    }
+
+    private void LoginError()  // i have to make more methods for each if statement
+    {
+        // 3. Set showError to true to make the EmployeeError div visible
+        showError = true;
+    }
+}
