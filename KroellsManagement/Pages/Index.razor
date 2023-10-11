@@ -18,7 +18,7 @@
             </EditForm>
     
             <div id="Button" style="margin-top: 20px;">
-                <button type="submit" @onclick="SignIn" class="btn btn-primary"> Sign in </button>
+                <button type="submit" @onclick="SignIn" class="button"> Sign in </button>
             </div>
 
             <div id="EmployeeError" style="border: 1px solid black; margin:auto; visibility: @(showError /*this need to be a sbyte*/ ? "visible" : "hidden")">
@@ -43,7 +43,7 @@
     private async Task SignIn()
     {
         sbyte isAuthenticated = await db.DBConnection();
-        
+        Console.WriteLine(isAuthenticated);
         if (isAuthenticated == 1)
         {
             NavigationManager.NavigateTo("/admin", false);

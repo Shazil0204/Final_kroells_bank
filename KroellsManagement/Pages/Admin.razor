@@ -49,42 +49,23 @@
 			</tr>
 		</thead>
 		<tbody id="tableBody">
-			<tr>
-				<td class="ta-bleContent">1</td>
-				<td contenteditable="@_editing" class="tableContent">$1,000.00</td>
-				<td contenteditable="@_editing" class="tableContent"></td>
-				<td contenteditable="@_editing" class="tableContent"></td>
-				<td contenteditable="@_editing" class="tableContent"></td>
-				<td contenteditable="@_editing" class="tableContent"></td>
-				<td contenteditable="@_editing" class="tableContent"></td>
-				<td><button @onclick="Delete" class="button" id="table">Delete</button></td>
-			</tr>
-			<tr>
-				<td class="tableContent">2</td>
-				<td contenteditable="@_editing" class="tableContent">$500.00</td>
-				<td contenteditable="@_editing" class="tableContent"></td>
-				<td contenteditable="@_editing" class="tableContent"></td>
-				<td contenteditable="@_editing" class="tableContent"></td>
-				<td contenteditable="@_editing" class="tableContent"></td>
-				<td contenteditable="@_editing" class="tableContent"></td>
-				<td><button @onclick="Delete" class="button" id="table">Delete</button></td>
+			@for (int i = 0; i < currentTable.Count; i++)
+			{
+				Model.Properties.Current current = (Model.Properties.Current)currentTable[i];
 
-			</tr>
-				@for (int i = 0; i < currentTable.Count; i++)
-				{
-					Model.Properties.Current current = (Model.Properties.Current)currentTable[i];
+				int id = i;
 
-					<tr>
-						<td contenteditable="@_editing" @oninput="() => UpdateDatabase(i)" class="tableContent">@current.One</td>
-						<td contenteditable="@_editing" class="tableContent">@current.Two</td>
-						<td contenteditable="@_editing" class="tableContent">@current.Three</td>
-						<td contenteditable="@_editing" class="tableContent">@current.Four</td>
-						<td contenteditable="@_editing" class="tableContent">@current.Five</td>
-						<td contenteditable="@_editing" class="tableContent">@current.Six</td>
-						<td contenteditable="@_editing" class="tableContent">@current.Seven</td>
-						<td><button  class="button">Delete</button></td>
-					</tr>
-				}
+				<tr>
+					<td id="cell1_@i" class="tableContent">@current.One</td>
+					<td id="cell2_@i" contenteditable="@_editing" class="tableContent">@current.Two</td>
+					<td id="cell3_@i" contenteditable="@_editing" class="tableContent">@current.Three</td>
+					<td id="cell4_@i" contenteditable="@_editing" class="tableContent">@current.Four</td>
+					<td id="cell5_@i" contenteditable="@_editing" class="tableContent">@current.Five</td>
+					<td id="cell6_@i" contenteditable="@_editing" class="tableContent">@current.Six</td>
+					<td id="cell7_@i" contenteditable="@_editing" class="tableContent">@current.Seven</td>
+					<td><button id="save_@i" @onclick="() => UpdateDatabase(id)" class="button">Save</button><button @onclick="() => Delete(id)" class="button">Delete</button></td>
+				</tr>
+			}
 		</tbody>
 		<tfoot>
 			<tr id="footer">
@@ -117,108 +98,175 @@
 	/// The EditLock button is a bit different, because it doesnt need to be identified and it has its own method in the ButtonController class.
 	/// </summary>
 
+	//String to keep track of the currently displayed table
+	private string _currentDisplay = "";
+
 	Model.Database database = new Model.Database();
 
 	private void GetAccounts()
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Accounts";
+		_currentDisplay = button.ButtonName;
 		CallJS(button.ButtonName);
 		controller.TableHandler(button);
-		ConvertToRow(database.GetTable(button));
+		ConvertToRow(database.GetTable(button.ButtonName));
 	}
 
 	private void GetAddresses()
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Addresses";
+		_currentDisplay = button.ButtonName;
 		CallJS(button.ButtonName);
 		controller.TableHandler(button);
-		ConvertToRow(database.GetTable(button));
+		ConvertToRow(database.GetTable(button.ButtonName));
 	}
 
 	private void GetCards()
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Cards";
+		_currentDisplay = button.ButtonName;
 		CallJS(button.ButtonName);
 		controller.TableHandler(button);
-		ConvertToRow(database.GetTable(button));
+		ConvertToRow(database.GetTable(button.ButtonName));
 	}
 
 	private void GetClients()
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Clients";
+		_currentDisplay = button.ButtonName;
 		CallJS(button.ButtonName);
 		controller.TableHandler(button);
-		ConvertToRow(database.GetTable(button));
+		ConvertToRow(database.GetTable(button.ButtonName));
 	}
 
 	private void GetCprs()
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "CPRs";
+		_currentDisplay = button.ButtonName;
 		CallJS(button.ButtonName);
 		controller.TableHandler(button);
-		ConvertToRow(database.GetTable(button));
+		ConvertToRow(database.GetTable(button.ButtonName));
 	}
 
 	private void GetEmployees()
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Employees";
+		_currentDisplay = button.ButtonName;
 		CallJS(button.ButtonName);
 		controller.TableHandler(button);
-		ConvertToRow(database.GetTable(button));
+		ConvertToRow(database.GetTable(button.ButtonName));
 	}
 
 	private void GetJobs()
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Jobs";
+		_currentDisplay = button.ButtonName;
 		CallJS(button.ButtonName);
 		controller.TableHandler(button);
-		ConvertToRow(database.GetTable(button));
+		ConvertToRow(database.GetTable(button.ButtonName));
 	}
 
 	private void GetLoans()
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Loans";
+		_currentDisplay = button.ButtonName;
 		CallJS(button.ButtonName);
 		controller.TableHandler(button);
-		ConvertToRow(database.GetTable(button));
+		ConvertToRow(database.GetTable(button.ButtonName));
 	}
 
 	private void GetTransactions()
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Transactions";
+		_currentDisplay = button.ButtonName;
 		CallJS(button.ButtonName);
 		controller.TableHandler(button);
-		ConvertToRow(database.GetTable(button));
+		ConvertToRow(database.GetTable(button.ButtonName));
 	}
 
-	private string _currentlyDisplayed;
 	private int _id;
 
-	private void Delete()
+	private async Task Delete(int rowId)
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Delete";
 		controller.TableHandler(button);
 
-		// DATABASE DELETE ROW, IDENTIFY ROW
+		string cellContent = "";
+		cellContent = await runtime.InvokeAsync<string>("getContentFromCell", $"cell{1}_{rowId}");
 
+		// deletes the row in the database
+		database.DeleteData(cellContent, _currentDisplay);
 
-		// REFRESH
+		// Calls the ClearTable function to remove all rows currently displayed in the HTML table.
+		await runtime.InvokeVoidAsync("ClearTable")
+		;
+
+		// Gets data from the database and converts it to rows, for the HTML table.
+		ConvertToRow(database.GetTable(_currentDisplay));
+
 	}
 
-	public async Task UpdateDatabase(int rowValue)
+	/// <summary>
+	/// This method takes a parameter of the row id, to determine which row has to be updated.
+	/// Then it goes through each of the elements in the row and updates them to the database.
+	/// </summary>
+	/// <param name="rowValue"></param>
+	/// <returns></returns>
+	private async Task UpdateDatabase(int rowId)
 	{
-		
+		string[] cellContent = new string[7];
+		for (int i = 0; i < cellContent.Length; i++)
+		{
+			cellContent[i] = await runtime.InvokeAsync<string>("getContentFromCell", $"cell{i}_{rowId}");
+		}
+
+		string storedProcedure = "";
+
+		switch (_currentDisplay)
+		{
+			case "Accounts":
+				storedProcedure = $"EXEC UPDATEACCOUNT @ACCOUNT_ID = {cellContent[0]}, @BALANCE = {cellContent[1]}, @CARD_ID = {cellContent[2]};";
+				break;
+			case "Addresses":
+				storedProcedure = $"EXEC UPDATEADDRESS @ADDRESS_ID = {cellContent[0]}, @ZIP_CODE = {cellContent[1]}, @CITY = {cellContent[2]}, @STREET = {cellContent[3]}, @HOUSE_NR = {cellContent[4]};";
+				break;
+			case "Cards":
+				storedProcedure = $"EXEC UPDATECARDS @CARD_ID = {cellContent[0]}, @CARD_NR = {cellContent[1]}, @EXPIRE_DATE = {cellContent[2]}, @CVV = {cellContent[3]}, @CLIENT_NAME = {cellContent[4]}, @PIN = {cellContent[5]}, @SPENDING_LIMIT = {cellContent[6]};";
+				break;
+			case "Clients":
+				storedProcedure = $"EXEC UPDATECLIENT @CLIENT_ID = {cellContent[0]}, @CLIENT_NAME = {cellContent[1]}, @USERNAME = {cellContent[2]}, @PASSWORDHASHED = {cellContent[3]};";
+				break;
+			case "CPRs":
+				storedProcedure = $"EXEC UPDATECPR @CPR_ID = {cellContent[0]}, @CLIENT_ID = {cellContent[1]}, @ADDRESS_ID = {cellContent[2]}, @EMPLOYEE_ID = {cellContent[3]}, @CPR_NR = {cellContent[4]};";
+				break;
+			case "Employees":
+				storedProcedure = $"EXEC UPDATEEMPLOYEE @EMPLOYEE_ID = {cellContent[0]}, @POSITION = {cellContent[1]} , @USERNAME = {cellContent[2]}, @PASSWORDHASHED = {cellContent[3]};";
+				break;
+			case "Jobs":
+				storedProcedure = $"EXEC UPDATEJOB @JOB_ID = {cellContent[0]}, @INCOME = {cellContent[1]}, @JOB_NAME = {cellContent[2]};";
+				break;
+			case "Loans":
+				storedProcedure = $"EXEC UPDATELOAN @LOAN_ID = {cellContent[0]}, @CLIENT_ID = {cellContent[1]}, @APR = {cellContent[2]}, @AMOUNT = {cellContent[3]};";
+				break;
+			case "Transactions":
+				storedProcedure = $"EXEC UPDATETRANSACTION @TRANSACTION_ID = {cellContent[0]}, @AMOUNT = {cellContent[1]}, @DATE_TIME = {cellContent[2]}, @ACCOUNT_ID = {cellContent[3]};";
+				break;
+		}
+
+
 	}
+
+
 
 
 	// Creates a boolean variable to keep track of the current edit state.
@@ -248,11 +296,14 @@
 
 	private async Task Create()
 	{
-		await runtime.InvokeVoidAsync("AddRow");
+		//await runtime.InvokeVoidAsync("AddRow");
+		Model.Database createNewQuery = new Model.Database();
+		createNewQuery.CreateTable(_currentDisplay);
 	}
 
 	private void ConvertToRow(List<string[]> data)
 	{
+
 		foreach (string[] array in data)
 		{
 			Model.Properties.Current current = new();

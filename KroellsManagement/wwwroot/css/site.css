@@ -125,6 +125,7 @@ a, .btn-link {
     /* Style table cells (td) */
     .table td {
         padding: 0px; /* Cell padding */
+        margin: 0px;
     }
 
 .tableContent, #table {

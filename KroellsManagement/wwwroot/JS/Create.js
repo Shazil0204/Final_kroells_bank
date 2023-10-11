@@ -11,24 +11,44 @@ function AddRow() {
     // Create and append 7 table cells with meaningful values to the new row
     for (let i = 1; i <= 7; i++) {
         const newCell = document.createElement("td");
-        newCell.textContent = "New Value " + i; // Set meaningful values
+        newCell.textContent = "0"; // Set meaningful values
         newRow.appendChild(newCell);
     }
-    // Create a table cell for the button
-    const buttonCell = document.createElement("td");
-     // Create a button element
-    const button = document.createElement("button");
-    button.textContent = "Delete";
+    // Create a table cell for the Delete button
+    const deleteButtonCell = document.createElement("td");
+     // Create a button element with the delete function
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
 
     // Add a class to the button element for styling
-    button.classList.add("button");
+    deleteButton.classList.add("button");
     
     // Append the button element to the button cell
-    buttonCell.appendChild(button);
+    deleteButtonCell.appendChild(button);
 
        // Append the button cell to the new row
     newRow.appendChild(buttonCell);
 
-     // Append the new row to the table body, adding the row with the button to the table
+    
+
+    // Create a table cell for the save button
+    const saveButtonCell = document.createElement("td");
+
+     // Create a button element with the save function
+    const saveButton = document.createElement("button");
+    saveButton.textContent = "Save";
+
+    // Add a class to the button element for styling
+    saveButton.classList.add("button");
+
+     // Append the button element to the button cell
+    saveButtonCell.appendChild(button);
+
+     // Append the button cell to the new row
+    newRow.appendChild(buttonCell);
+    
+ 
+
+     // Append the new row to the table body, adding the row with the buttons to the table
     tableBody.appendChild(newRow);
 }

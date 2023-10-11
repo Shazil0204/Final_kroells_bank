@@ -68,16 +68,13 @@ function updateTable(columnNames) {
     }
 }
 
-//This function ruins the damn javascript on the website
+// Function to clear the table.
 function clearTable() {
-
-    const table = document.getElementById("table");
-    // Loops through each row in the table (skips first row because its contains headers and minuses with 1 becauses we want to keep the footer intact)
-    for (let i = 1; i < table.rows.length -1; i++) {
-        const row = table.rows[i];
-        // Lopp through each cell in the row and clear its content
-        for (let j = 0; j < row.cells.length; j++) {
-            row.cells[j].innerText = "";
-        }
+    // Optains the table body by using the id
+    const table = document.getElementById("tableBody");
+    // while loop that repeatedly delets the first row of the table until there are no rows left.
+    while (table.rows.length >0) {
+        table.deleteRow(0);
     }
 }
+
