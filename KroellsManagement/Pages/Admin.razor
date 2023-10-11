@@ -56,13 +56,13 @@
 				int id = i;
 
 				<tr>
-					<td id="cell1_@i" class="tableContent">@current.One</td>
-					<td id="cell2_@i" contenteditable="@_editing" class="tableContent">@current.Two</td>
-					<td id="cell3_@i" contenteditable="@_editing" class="tableContent">@current.Three</td>
-					<td id="cell4_@i" contenteditable="@_editing" class="tableContent">@current.Four</td>
-					<td id="cell5_@i" contenteditable="@_editing" class="tableContent">@current.Five</td>
-					<td id="cell6_@i" contenteditable="@_editing" class="tableContent">@current.Six</td>
-					<td id="cell7_@i" contenteditable="@_editing" class="tableContent">@current.Seven</td>
+					<td id="cell0_@i" class="tableContent">@current.One</td>
+					<td id="cell1_@i" contenteditable="@_editing" class="tableContent">@current.Two</td>
+					<td id="cell2_@i" contenteditable="@_editing" class="tableContent">@current.Three</td>
+					<td id="cell3_@i" contenteditable="@_editing" class="tableContent">@current.Four</td>
+					<td id="cell4_@i" contenteditable="@_editing" class="tableContent">@current.Five</td>
+					<td id="cell5_@i" contenteditable="@_editing" class="tableContent">@current.Six</td>
+					<td id="cell6_@i" contenteditable="@_editing" class="tableContent">@current.Seven</td>
 					<td><button id="save_@i" @onclick="() => UpdateDatabase(id)" class="button">Save</button><button @onclick="() => Delete(id)" class="button">Delete</button></td>
 				</tr>
 			}
@@ -80,7 +80,7 @@
 			</tr>
 		</tfoot>
 	</table>
-
+	<label id="errorMessage">Could not save to database!</label>
 </body>
 </html>
 
@@ -90,7 +90,6 @@
 	/// <summary>
 	/// This first part of the scope has a lot of methods, which gets called by only 1 button, from the user-interface.
 	/// Each method identifies a new button, using the button object, and gives the button a name.
-	/// Once the button has a name, it calls the ButtonController class, which needs 2 parameters.
 	/// It needs to know the button and a boolean value if its editing or not.
 	///
 	/// Editing refers to the creating and deleting tables.
@@ -100,6 +99,7 @@
 
 	//String to keep track of the currently displayed table
 	private string _currentDisplay = "";
+	private List<Model.TableBlueprint> currentTable = new List<Model.TableBlueprint>();
 
 	Model.Database database = new Model.Database();
 
@@ -109,7 +109,6 @@
 		button.ButtonName = "Accounts";
 		_currentDisplay = button.ButtonName;
 		CallJS(button.ButtonName);
-		controller.TableHandler(button);
 		ConvertToRow(database.GetTable(button.ButtonName));
 	}
 
@@ -119,7 +118,6 @@
 		button.ButtonName = "Addresses";
 		_currentDisplay = button.ButtonName;
 		CallJS(button.ButtonName);
-		controller.TableHandler(button);
 		ConvertToRow(database.GetTable(button.ButtonName));
 	}
 
@@ -129,7 +127,6 @@
 		button.ButtonName = "Cards";
 		_currentDisplay = button.ButtonName;
 		CallJS(button.ButtonName);
-		controller.TableHandler(button);
 		ConvertToRow(database.GetTable(button.ButtonName));
 	}
 
@@ -139,7 +136,6 @@
 		button.ButtonName = "Clients";
 		_currentDisplay = button.ButtonName;
 		CallJS(button.ButtonName);
-		controller.TableHandler(button);
 		ConvertToRow(database.GetTable(button.ButtonName));
 	}
 
@@ -149,7 +145,6 @@
 		button.ButtonName = "CPRs";
 		_currentDisplay = button.ButtonName;
 		CallJS(button.ButtonName);
-		controller.TableHandler(button);
 		ConvertToRow(database.GetTable(button.ButtonName));
 	}
 
@@ -159,7 +154,6 @@
 		button.ButtonName = "Employees";
 		_currentDisplay = button.ButtonName;
 		CallJS(button.ButtonName);
-		controller.TableHandler(button);
 		ConvertToRow(database.GetTable(button.ButtonName));
 	}
 
@@ -169,7 +163,6 @@
 		button.ButtonName = "Jobs";
 		_currentDisplay = button.ButtonName;
 		CallJS(button.ButtonName);
-		controller.TableHandler(button);
 		ConvertToRow(database.GetTable(button.ButtonName));
 	}
 
@@ -179,7 +172,6 @@
 		button.ButtonName = "Loans";
 		_currentDisplay = button.ButtonName;
 		CallJS(button.ButtonName);
-		controller.TableHandler(button);
 		ConvertToRow(database.GetTable(button.ButtonName));
 	}
 
@@ -189,27 +181,25 @@
 		button.ButtonName = "Transactions";
 		_currentDisplay = button.ButtonName;
 		CallJS(button.ButtonName);
-		controller.TableHandler(button);
 		ConvertToRow(database.GetTable(button.ButtonName));
 	}
 
-	private int _id;
-
+	/// <summary>
+	/// The delete method gets rid of the row, which the delete button is pressed from.
+	/// It removes the row, inside the database, then it refreshes the HTML table.
+	/// </summary>
+	/// <param name="rowId"></param>
+	/// <returns></returns>
 	private async Task Delete(int rowId)
 	{
-		Model.Properties.Button button = new Model.Properties.Button();
-		button.ButtonName = "Delete";
-		controller.TableHandler(button);
-
 		string cellContent = "";
-		cellContent = await runtime.InvokeAsync<string>("getContentFromCell", $"cell{1}_{rowId}");
+		cellContent = await runtime.InvokeAsync<string>("getContentFromCell", $"cell{0}_{rowId}");
 
 		// deletes the row in the database
 		database.DeleteData(cellContent, _currentDisplay);
 
 		// Calls the ClearTable function to remove all rows currently displayed in the HTML table.
-		await runtime.InvokeVoidAsync("ClearTable")
-		;
+		await runtime.InvokeVoidAsync("ClearTable");
 
 		// Gets data from the database and converts it to rows, for the HTML table.
 		ConvertToRow(database.GetTable(_currentDisplay));
@@ -230,61 +220,18 @@
 			cellContent[i] = await runtime.InvokeAsync<string>("getContentFromCell", $"cell{i}_{rowId}");
 		}
 
-		string storedProcedure = "";
-
-		switch (_currentDisplay)
-		{
-			case "Accounts":
-				storedProcedure = $"EXEC UPDATEACCOUNT @ACCOUNT_ID = {cellContent[0]}, @BALANCE = {cellContent[1]}, @CARD_ID = {cellContent[2]};";
-				break;
-			case "Addresses":
-				storedProcedure = $"EXEC UPDATEADDRESS @ADDRESS_ID = {cellContent[0]}, @ZIP_CODE = {cellContent[1]}, @CITY = {cellContent[2]}, @STREET = {cellContent[3]}, @HOUSE_NR = {cellContent[4]};";
-				break;
-			case "Cards":
-				storedProcedure = $"EXEC UPDATECARDS @CARD_ID = {cellContent[0]}, @CARD_NR = {cellContent[1]}, @EXPIRE_DATE = {cellContent[2]}, @CVV = {cellContent[3]}, @CLIENT_NAME = {cellContent[4]}, @PIN = {cellContent[5]}, @SPENDING_LIMIT = {cellContent[6]};";
-				break;
-			case "Clients":
-				storedProcedure = $"EXEC UPDATECLIENT @CLIENT_ID = {cellContent[0]}, @CLIENT_NAME = {cellContent[1]}, @USERNAME = {cellContent[2]}, @PASSWORDHASHED = {cellContent[3]};";
-				break;
-			case "CPRs":
-				storedProcedure = $"EXEC UPDATECPR @CPR_ID = {cellContent[0]}, @CLIENT_ID = {cellContent[1]}, @ADDRESS_ID = {cellContent[2]}, @EMPLOYEE_ID = {cellContent[3]}, @CPR_NR = {cellContent[4]};";
-				break;
-			case "Employees":
-				storedProcedure = $"EXEC UPDATEEMPLOYEE @EMPLOYEE_ID = {cellContent[0]}, @POSITION = {cellContent[1]} , @USERNAME = {cellContent[2]}, @PASSWORDHASHED = {cellContent[3]};";
-				break;
-			case "Jobs":
-				storedProcedure = $"EXEC UPDATEJOB @JOB_ID = {cellContent[0]}, @INCOME = {cellContent[1]}, @JOB_NAME = {cellContent[2]};";
-				break;
-			case "Loans":
-				storedProcedure = $"EXEC UPDATELOAN @LOAN_ID = {cellContent[0]}, @CLIENT_ID = {cellContent[1]}, @APR = {cellContent[2]}, @AMOUNT = {cellContent[3]};";
-				break;
-			case "Transactions":
-				storedProcedure = $"EXEC UPDATETRANSACTION @TRANSACTION_ID = {cellContent[0]}, @AMOUNT = {cellContent[1]}, @DATE_TIME = {cellContent[2]}, @ACCOUNT_ID = {cellContent[3]};";
-				break;
-		}
-
-
+		database.ApplyChanges(cellContent, _currentDisplay.ToUpper(), runtime);
 	}
-
-
-
 
 	// Creates a boolean variable to keep track of the current edit state.
 	private bool _editing;
 
-	Controllers.ButtonController controller = new Controllers.ButtonController();
-
 	private void EditLock()
 	{
 		// Changes the edit state, inside the ButtonController
-		_editing = controller.EditLock(_editing);
+		_editing = !_editing;
 	}
 
-	/// <summary>
-	///
-	/// </summary>
-
-	private List<Model.TableBlueprint> currentTable = new List<Model.TableBlueprint>();
 	/// <summary>
 	/// This method calls a javascript function, to delete the shown table
 	/// </summary>
@@ -294,16 +241,33 @@
 		//await runtime.InvokeVoidAsync("DeleteAll");
 	}
 
+	/// <summary>
+	/// This method creates a new row inside the database, then refreshes the HTML table to display the table with the new row.
+	/// </summary>
+	/// <returns></returns>
 	private async Task Create()
 	{
-		//await runtime.InvokeVoidAsync("AddRow");
-		Model.Database createNewQuery = new Model.Database();
-		createNewQuery.CreateTable(_currentDisplay);
+		// Creates a new row in the currently selected table
+		database.CreateTable(_currentDisplay);
+
+		// Calls the ClearTable function to remove all rows currently displayed in the HTML table.
+		await runtime.InvokeVoidAsync("ClearTable");
+
+		// Generates new rows in the HTML table.
+		ConvertToRow(database.GetTable(_currentDisplay));
 	}
 
+	/// <summary>
+	/// This method puts data into the 7 cells in a row.
+	/// It uses if statements to determine if it should write data in the cells.
+	/// If a table only has 4 values in the table, then it will only go to the 4th position inside the array, due to the if statements.
+	/// These variables get stored in properties, in the current class.
+	/// The object then gets output into the currentTable list, which gets displayed in the HTML
+	/// The parameter is a list containing string arrays. The list is one row and the string[] is the attributes inside the list.
+	/// </summary>
+	/// <param name="data"></param>
 	private void ConvertToRow(List<string[]> data)
 	{
-
 		foreach (string[] array in data)
 		{
 			Model.Properties.Current current = new();
@@ -335,6 +299,13 @@
 			}
 
 			currentTable.Add(current);
+			Console.WriteLine(runtime + "3");
 		}
+	}
+
+	internal async Task ShowError(IJSRuntime runtime)
+	{
+		// Use _runtime to invoke JavaScript functions
+		await runtime.InvokeVoidAsync("showError");
 	}
 }

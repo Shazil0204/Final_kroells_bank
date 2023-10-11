@@ -48,12 +48,13 @@ function Entry(buttonName) {
             break;
     }
     // Calls updateTable function
-    updateTable(column);
+    UpdateTable(column);
     // Calls clearTable function
-    clearTable();
+    ClearTable();
 }
+
 // this function will replace what is supposed go into footer and the header
-function updateTable(columnNames) {
+function UpdateTable(columnNames) {
     // Iterates through all the header and footer elements, and at each iteration, it replaces the header's value with the value obtained from the 'entry'.
     for (let i = 1; i < 8; i++) {
         const headerId = document.getElementById(`header${i}`)
@@ -61,15 +62,10 @@ function updateTable(columnNames) {
         const footerId = document.getElementById(`footer${i}`)
         footerId.innerText = columnNames[i]
     }
-    // While tbody has a first child, it will be removed.
-    while (tbody.firstChild) {
-        // removes the firstchild of the tbody
-        tbody.removeChild(tbody.firstChild);
-    }
 }
 
 // Function to clear the table.
-function clearTable() {
+function ClearTable() {
     // Optains the table body by using the id
     const table = document.getElementById("tableBody");
     // while loop that repeatedly delets the first row of the table until there are no rows left.
@@ -77,4 +73,3 @@ function clearTable() {
         table.deleteRow(0);
     }
 }
-
