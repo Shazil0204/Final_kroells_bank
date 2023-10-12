@@ -8,7 +8,7 @@ const tbody = document.getElementById('tableBody');
 const tfoot = document.getElementById('footer');
 
 // This function will serve as a table content switcher
-function Entry(buttonName) {
+function entry(buttonName) {
     switch (buttonName) {
         // If button "Accounts" is pressed it fill these into the header and footer
         case "Accounts":
@@ -54,13 +54,13 @@ function Entry(buttonName) {
             break;
     }
     // Calls updateTable function
-    UpdateTable(column);
+    updateTable(column);
     // Calls clearTable function
-    ClearTable();
+    clearTable();
 }
 
 // this function will replace what is supposed go into footer and the header
-function UpdateTable(columnNames) {
+function updateTable(columnNames) {
     // Iterates through all the header and footer elements, and at each iteration, it replaces the header's value with the value obtained from the 'entry'.
     for (let i = 1; i < 8; i++) {
         const headerId = document.getElementById(`header${i}`)
@@ -71,7 +71,7 @@ function UpdateTable(columnNames) {
 }
 
 // Function to clear the table.
-function ClearTable() {
+function clearTable() {
     // Optains the table body by using the id
     const table = document.getElementById("tableBody");
     // while loop that repeatedly delets the first row of the table until there are no rows left.

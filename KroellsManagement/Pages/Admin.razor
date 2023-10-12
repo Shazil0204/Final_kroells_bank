@@ -53,7 +53,7 @@
 		<tbody id="tableBody">
 			@for (int i = 0; i < currentTable.Count; i++)
 			{
-				Model.Properties.Current current = (Model.Properties.Current)currentTable[i];
+				Model.Properties.Current current = currentTable[i];
 
 				int id = i;
 
@@ -219,7 +219,7 @@
 		database.DeleteData(cellContent, _currentDisplay);
 
 		// Calls the ClearTable function to remove all rows currently displayed in the HTML table.
-		await runtime.InvokeVoidAsync("ClearTable");
+		await runtime.InvokeVoidAsync("clearTable");
 
 		// Gets data from the database and converts it to rows, for the HTML table.
 		ConvertToRow(database.GetTable(_currentDisplay));
@@ -257,7 +257,7 @@
 	/// </summary>
 	private async Task CallJS(string button)
 	{
-		await runtime.InvokeVoidAsync("Entry", button);
+		await runtime.InvokeVoidAsync("entry", button);
 		//await runtime.InvokeVoidAsync("DeleteAll");
 	}
 
@@ -271,7 +271,7 @@
 		database.CreateTable(_currentDisplay);
 
 		// Calls the ClearTable function to remove all rows currently displayed in the HTML table.
-		await runtime.InvokeVoidAsync("ClearTable");
+		await runtime.InvokeVoidAsync("clearTable");
 
 		// Generates new rows in the HTML table.
 		ConvertToRow(database.GetTable(_currentDisplay));

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "I1OjzRRMvdqe55WfomruqqjF00kFK+HlkBdBVMC48dY=",
+  "Hash": "scjFOmiSWYKhqNqY11llA313O+kRWZa6GkFBARIXrbE=",
   "Source": "KroellsManagement",
   "BasePath": "_content/KroellsManagement",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "KroellsManagement\\wwwroot",
       "Source": "KroellsManagement",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\obj\\Debug\\net6.0\\scopedcss\\bundle\\KroellsManagement.styles.css",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\obj\\Debug\\net6.0\\scopedcss\\bundle\\KroellsManagement.styles.css",
       "SourceId": "KroellsManagement",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "KroellsManagement.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\obj\\Debug\\net6.0\\scopedcss\\bundle\\KroellsManagement.styles.css"
+      "OriginalItemSpec": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\obj\\Debug\\net6.0\\scopedcss\\bundle\\KroellsManagement.styles.css"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\KroellsManagement.bundle.scp.css",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\KroellsManagement.bundle.scp.css",
       "SourceId": "KroellsManagement",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "KroellsManagement.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\KroellsManagement.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\KroellsManagement.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "KroellsManagement",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "KroellsManagement",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\login.css",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\login.css",
       "SourceId": "KroellsManagement",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "css/login.css",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "KroellsManagement",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "KroellsManagement",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "KroellsManagement",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "KroellsManagement",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "KroellsManagement",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "KroellsManagement",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "KroellsManagement",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "KroellsManagement",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "KroellsManagement",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\site.css",
       "SourceId": "KroellsManagement",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\favicon.ico",
       "SourceId": "KroellsManagement",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\img\\ChildLabor.jpg",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\img\\ChildLabor.jpg",
       "SourceId": "KroellsManagement",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "img/ChildLabor.jpg",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\img\\ChildLabor.jpg"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\img\\FrktLogo.png",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\img\\FrktLogo.png",
       "SourceId": "KroellsManagement",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "img/FrktLogo.png",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\img\\FrktLogo.png"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\img\\KroellsBankBackground.png",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\img\\KroellsBankBackground.png",
       "SourceId": "KroellsManagement",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "img/KroellsBankBackground.png",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\img\\KroellsBankBackground.png"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\JS\\Create.js",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\JS\\Create.js",
       "SourceId": "KroellsManagement",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "JS/Create.js",
       "AssetKind": "All",
@@ -357,10 +357,10 @@
       "OriginalItemSpec": "wwwroot\\JS\\Create.js"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\JS\\Error.js",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\JS\\Error.js",
       "SourceId": "KroellsManagement",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "JS/Error.js",
       "AssetKind": "All",
@@ -374,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\JS\\Error.js"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\JS\\Save.js",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\JS\\Save.js",
       "SourceId": "KroellsManagement",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "JS/Save.js",
       "AssetKind": "All",
@@ -391,10 +391,10 @@
       "OriginalItemSpec": "wwwroot\\JS\\Save.js"
     },
     {
-      "Identity": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\JS\\Table.js",
+      "Identity": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\JS\\Table.js",
       "SourceId": "KroellsManagement",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\magnu\\source\\repos\\Final_kroells_bank\\KroellsManagement\\wwwroot\\",
       "BasePath": "_content/KroellsManagement",
       "RelativePath": "JS/Table.js",
       "AssetKind": "All",
