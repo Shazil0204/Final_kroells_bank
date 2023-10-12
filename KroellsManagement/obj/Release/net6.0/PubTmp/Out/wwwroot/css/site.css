@@ -136,7 +136,15 @@ td {
     padding: 0px;
 }
 
-errorMessage {
+#errorMessage {
     border: 1px solid black;
-    margin: auto;
+    color: red;
+    margin-left:auto;
+    margin-right: auto;
+    font-size: 100px;
+    font-weight: bolder;
+    display: none;
+    justify-content: center;
+    text-align: center;
+
 }

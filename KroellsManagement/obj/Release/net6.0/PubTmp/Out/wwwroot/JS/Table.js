@@ -73,4 +73,3 @@ function ClearTable() {
         table.deleteRow(0);
     }
 }
-

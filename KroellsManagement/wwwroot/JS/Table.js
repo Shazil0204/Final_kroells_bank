@@ -44,7 +44,7 @@ function Entry(buttonName) {
             break;
             // If button "Transactions" is pressed it fill these into the header and footer
         case "Transactions":
-            var column = ["", "Transaction ID", "Account ID", "Amount", "Date", "", "", ""]
+            var column = ["", "Transaction ID", "Amount", "Date", "Account ID", "", "", ""]
             break;
     }
     // Calls updateTable function

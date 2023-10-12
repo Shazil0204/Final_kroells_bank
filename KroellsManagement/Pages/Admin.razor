@@ -99,7 +99,7 @@
 
 	//String to keep track of the currently displayed table
 	private string _currentDisplay = "";
-	private List<Model.TableBlueprint> currentTable = new List<Model.TableBlueprint>();
+	private List<Model.Properties.Current> currentTable = new List<Model.Properties.Current>();
 
 	Model.Database database = new Model.Database();
 
@@ -270,7 +270,7 @@
 	{
 		foreach (string[] array in data)
 		{
-			Model.Properties.Current current = new();
+			Model.Properties.Current current = new Model.Properties.Current();
 
 			byte length = (byte)array.Length;
 
@@ -299,7 +299,6 @@
 			}
 
 			currentTable.Add(current);
-			Console.WriteLine(runtime + "3");
 		}
 	}
 

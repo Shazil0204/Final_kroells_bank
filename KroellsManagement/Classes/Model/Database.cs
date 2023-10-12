@@ -139,8 +139,8 @@ namespace KroellsManagement.Classes.Model
 				command.CommandType = CommandType.StoredProcedure;
 
 				// Input parameters
-				command.Parameters.AddWithValue("@Username", username); // Replace with your username
-				command.Parameters.AddWithValue("@Password", password); // Replace with your password
+				command.Parameters.AddWithValue("@Username", username); 
+				command.Parameters.AddWithValue("@Password", password); 
 
 				// Output parameter for result
 				SqlParameter resultParameter = command.Parameters.Add("@Result", SqlDbType.Int);
@@ -201,7 +201,7 @@ namespace KroellsManagement.Classes.Model
                                 command.Parameters.AddWithValue("@CARD_ID", content[0]);
                                 command.Parameters.AddWithValue("@CARD_NR", content[1]);
                                 command.Parameters.AddWithValue("@EXPIRE_DATE", DateTime.ParseExact(content[2], "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None));
-                                command.Parameters.AddWithValue("@CVV", content[3]);
+							command.Parameters.AddWithValue("@CVV", content[3]);
                                 command.Parameters.AddWithValue("@CLIENT_NAME", content[4]);
                                 command.Parameters.AddWithValue("@PIN", content[5]);
                                 command.Parameters.AddWithValue("@SPENDING_LIMIT", content[6]);
@@ -226,24 +226,24 @@ namespace KroellsManagement.Classes.Model
                                 command.Parameters.AddWithValue("@PASSWORDHASHED", content[3]);
                                 break;
                             case "JOBS":
-                                command.Parameters.AddWithValue("@EMPLOYEE_ID", content[0]);
-                                command.Parameters.AddWithValue("@POSITION", content[1]);
-                                command.Parameters.AddWithValue("@USERNAME", content[2]);
-                                command.Parameters.AddWithValue("@PASSWORDHASHED", content[3]);
-                                break;
+								command.Parameters.AddWithValue("@JOB_ID", content[0]);
+								command.Parameters.AddWithValue("@INCOME", content[1]);
+								command.Parameters.AddWithValue("@JOB_NAME", content[2]);
+							break;
                             case "LOANS":
-                                command.Parameters.AddWithValue("@JOB_ID", content[0]);
-                                command.Parameters.AddWithValue("@INCOME", content[1]);
-                                command.Parameters.AddWithValue("@JOB_NAME", content[2]);
+                                command.Parameters.AddWithValue("@LOAN_ID", content[0]);
+                                command.Parameters.AddWithValue("@CLIENT_ID", content[1]);
+								command.Parameters.AddWithValue("@APR", content[2]);
+                                command.Parameters.AddWithValue("@AMOUNT", content[3]);
                                 break;
                             case "TRANSACTIONS":
                                 command.Parameters.AddWithValue("@TRANSACTION_ID", content[0]);
-                                command.Parameters.AddWithValue("@ACCOUNT_ID", content[1]);
-                                command.Parameters.AddWithValue("@AMOUNT", content[2]);
-                                command.Parameters.AddWithValue("@DATE_TIME", content[3]);
+                                command.Parameters.AddWithValue("@AMOUNT", content[1]);
+                                command.Parameters.AddWithValue("@DATE_TIME", DateTime.ParseExact(content[2], "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None));
+                                command.Parameters.AddWithValue("@ACCOUNT_ID", content[3]);
                                 break;
 
-                            default:
+						default:
                                 break;
                         }
 					try

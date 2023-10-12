@@ -11,12 +11,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Pages\NewFile.txt" />
+    <Compile Remove="Classes\Controllers\**" />
+    <Compile Remove="Classes\View\**" />
+    <Content Remove="Classes\Controllers\**" />
+    <Content Remove="Classes\View\**" />
+    <EmbeddedResource Remove="Classes\Controllers\**" />
+    <EmbeddedResource Remove="Classes\View\**" />
+    <None Remove="Classes\Controllers\**" />
+    <None Remove="Classes\View\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Classes\Controllers\" />
-    <Folder Include="Classes\View\" />
+    <None Remove="Pages\NewFile.txt" />
   </ItemGroup>
 
   <ItemGroup>

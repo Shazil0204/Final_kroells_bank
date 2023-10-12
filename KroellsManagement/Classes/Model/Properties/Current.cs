@@ -5,7 +5,7 @@
 	/// It has seven attributes, just like the biggest table in the database.
 	/// If a property is not used, it will be empty and not be displayed in the table on the website.
 	/// </summary>
-	public class Current : TableBlueprint
+	public class Current
 	{
 		private string _one = "";
 		private string _two = "";
