@@ -46,6 +46,12 @@ function Entry(buttonName) {
         case "Transactions":
             var column = ["", "Transaction ID", "Amount", "Date", "Account ID", "", "", ""]
             break;
+        case "Client_Account":
+            column = ["", "ClientAccount ID", "Client ID", "Account ID", "", "", "", ""]
+            break;
+        case "Client_Job":
+            column = ["", "ClientJob ID", "Client ID", "Job ID", "", "", "", ""]
+            break;
     }
     // Calls updateTable function
     UpdateTable(column);

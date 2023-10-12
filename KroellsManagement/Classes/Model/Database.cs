@@ -11,20 +11,7 @@ namespace KroellsManagement.Classes.Model
 	/// </summary>
 	internal class Database
 	{
-		private protected string username;
-		private protected string password;
-
-		internal string Username
-		{
-			get { return username; }
-			set { username = value; }
-		}
-
-		internal string Password
-		{
-			get { return password; }
-			set { password = value; }
-		}
+		internal Login login = new Login();
 
 		/// <summary>
 		/// This method will talk to the database /CreateTable\ Procedure and insert a new row inside the table we have choosen
@@ -123,7 +110,6 @@ namespace KroellsManagement.Classes.Model
 
 		internal async Task<sbyte> DBConnection()
 		{
-
 			var config = new ConfigurationBuilder()
 			   .AddJsonFile("appsettings.json")
 			   .Build();
@@ -139,8 +125,8 @@ namespace KroellsManagement.Classes.Model
 				command.CommandType = CommandType.StoredProcedure;
 
 				// Input parameters
-				command.Parameters.AddWithValue("@Username", username); 
-				command.Parameters.AddWithValue("@Password", password); 
+				command.Parameters.AddWithValue("@Username", login.Username); 
+				command.Parameters.AddWithValue("@Password", login.Password); 
 
 				// Output parameter for result
 				SqlParameter resultParameter = command.Parameters.Add("@Result", SqlDbType.Int);
@@ -188,8 +174,7 @@ namespace KroellsManagement.Classes.Model
                                 command.Parameters.AddWithValue("@ACCOUNT_ID", content[0]);
                                 command.Parameters.AddWithValue("@BALANCE", content[1]);
                                 command.Parameters.AddWithValue("@CARD_ID", content[2]);
-								Console.WriteLine($"account {content[0]} balance {content[1]} card {content[2]}");
-                                break;
+								break;
                             case "ADDRESSES":
                                 command.Parameters.AddWithValue("@ADDRESS_ID", content[0]);
                                 command.Parameters.AddWithValue("@ZIP_CODE", content[1]);
@@ -242,7 +227,16 @@ namespace KroellsManagement.Classes.Model
                                 command.Parameters.AddWithValue("@DATE_TIME", DateTime.ParseExact(content[2], "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None));
                                 command.Parameters.AddWithValue("@ACCOUNT_ID", content[3]);
                                 break;
-
+						case "CLIENT_ACCOUNT":
+								command.Parameters.AddWithValue("@CLIENT_ACCOUNT_ID", content[0]);
+								command.Parameters.AddWithValue("@CLIENT_ID", content[1]);
+								command.Parameters.AddWithValue("@ACCOUNT_ID", content[2]);
+							break;
+						case "CLIENT_JOB":
+							command.Parameters.AddWithValue("@CLIENT_JOB_ID", content[0]);
+							command.Parameters.AddWithValue("@CLIENT_ID", content[1]);
+							command.Parameters.AddWithValue("@JOB_ID", content[2]);
+							break;
 						default:
                                 break;
                         }

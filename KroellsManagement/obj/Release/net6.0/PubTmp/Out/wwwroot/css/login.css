@@ -1,0 +1,62 @@
+.loginBody {
+    background-image: url('/img/ChildLabor.jpg');
+    min-height: 100%;
+    background-size: cover;
+    border-radius: 25px;
+    border: solid 3px;
+    border-color: darkorange;
+}
+
+.background {
+    background-image: url('/img/KroellsBankBackground.png');
+    min-height: 100%;
+    background-size: cover;
+    border-radius: 25px;
+}
+
+.container {
+    width: 500px;
+    height: 650px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url('/img/KroellsBankBackground.png');
+    background-size: cover;
+}
+
+#LogoAndText img {
+    height: 450px;
+}
+
+#Input {
+    margin-bottom: 10px;
+}
+
+    #Input input[type="text"],
+    #Input input[type="password"] {
+        font-family: Raleway;
+        font-weight: 100;
+        font-size: 15px;
+        color: black;
+        background-image: linear-gradient(greenyellow,yellow);
+        padding: 10px 15px;
+        border: solid #264653 2px;
+        box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+        border-radius: 7px;
+        transition: 1000ms;
+        border-color: darkorange;
+    }
+
+#Button {
+    margin-top: 20px;
+}
+
+#EmployeeError {
+    border: 1px solid black;
+    margin: auto;
+    visibility: hidden;
+}
+
+    #EmployeeError p {
+        color: red;
+    }

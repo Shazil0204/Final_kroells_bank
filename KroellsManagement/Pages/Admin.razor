@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="~/css/site.css">
 
 </head>
-<body>
+<body class="tb">
 
 	<div class="divert">
 		<button @onclick="GetAccounts" class="button">Accounts</button>
@@ -27,6 +27,8 @@
 		<button @onclick="GetJobs" class="button">Jobs</button>
 		<button @onclick="GetLoans" class="button">Loans</button>
 		<button @onclick="GetTransactions" class="button">Transactions</button>
+		<button @onclick="GetClientAccounts" class="button">ClientAccounts</button>
+		<button @onclick="GetClientJobs" class="button">ClientJobs</button>
 	</div>
 
 	<div class="editbar">
@@ -45,7 +47,7 @@
 				<th id="header5">5</th>
 				<th id="header6">6</th>
 				<th id="header7">7</th>
-				<th>Buttons</th>
+				<th id="header8">Buttons</th>
 			</tr>
 		</thead>
 		<tbody id="tableBody">
@@ -76,7 +78,7 @@
 				<th id="footer5">5</th>
 				<th id="footer6">6</th>
 				<th id="footer7">7</th>
-				<th>Buttons</th>
+				<th id="footer8">Buttons</th>
 			</tr>
 		</tfoot>
 	</table>
@@ -179,6 +181,24 @@
 	{
 		Model.Properties.Button button = new Model.Properties.Button();
 		button.ButtonName = "Transactions";
+		_currentDisplay = button.ButtonName;
+		CallJS(button.ButtonName);
+		ConvertToRow(database.GetTable(button.ButtonName));
+	}
+
+	private void GetClientAccounts()
+	{
+		Model.Properties.Button button = new Model.Properties.Button();
+		button.ButtonName = "Client_Account";
+		_currentDisplay = button.ButtonName;
+		CallJS(button.ButtonName);
+		ConvertToRow(database.GetTable(button.ButtonName));
+	}
+
+	private void GetClientJobs()
+	{
+		Model.Properties.Button button = new Model.Properties.Button();
+		button.ButtonName = "Client_Job";
 		_currentDisplay = button.ButtonName;
 		CallJS(button.ButtonName);
 		ConvertToRow(database.GetTable(button.ButtonName));

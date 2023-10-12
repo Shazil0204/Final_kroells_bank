@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
+      "Id": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
       "Id": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "PackagePath": "staticwebassets\\css\\open-iconic"
     },
@@ -71,6 +75,10 @@
     {
       "Id": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\img\\ChildLabor.jpg",
+      "PackagePath": "staticwebassets\\img\\ChildLabor.jpg"
     },
     {
       "Id": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\img\\FrktLogo.png",

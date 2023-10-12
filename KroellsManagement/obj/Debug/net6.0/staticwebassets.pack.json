@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
+      "Id": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
       "Id": "C:\\Users\\zbcmhlun\\Documents\\GitHub\\Final_kroells_bank\\KroellsManagement\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "PackagePath": "staticwebassets\\css\\open-iconic"
     },
